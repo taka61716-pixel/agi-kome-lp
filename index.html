@@ -456,8 +456,6 @@
     }
 
     .reserve-form__form {
-      max-width: 32rem;
-      margin-inline: auto;
       text-align: left;
     }
 
@@ -634,6 +632,115 @@
       min-height: 3.35rem;
       font-size: 1.05rem;
       letter-spacing: 0.06em;
+    }
+
+    .reserve-form__submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      filter: grayscale(0.15);
+    }
+
+    .reserve-form-flow {
+      max-width: 32rem;
+      margin-inline: auto;
+    }
+
+    .reserve-form-step[hidden] {
+      display: none !important;
+    }
+
+    .reserve-thanks {
+      text-align: center;
+      padding: clamp(2rem, 5vw, 2.75rem) clamp(1.25rem, 4vw, 2rem) clamp(2rem, 5vw, 2.5rem);
+      background: linear-gradient(
+        168deg,
+        var(--color-deep-green) 0%,
+        var(--color-forest) 42%,
+        var(--color-deep-green-light) 100%
+      );
+      color: var(--color-cream);
+      border-radius: var(--radius);
+      border: 1px solid rgba(212, 183, 106, 0.28);
+      box-shadow: 0 8px 32px rgba(30, 61, 50, 0.25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reserve-thanks[hidden] {
+      display: none !important;
+    }
+
+    .reserve-thanks::before {
+      content: "";
+      display: block;
+      height: 3px;
+      width: min(12rem, 70%);
+      margin: 0 auto 1.35rem;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-gold) 20%,
+        var(--color-gold-light) 50%,
+        var(--color-gold) 80%,
+        transparent
+      );
+      border-radius: 2px;
+    }
+
+    .reserve-thanks::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='0.8'%3E%3Cpath d='M10 70 Q40 20 70 70'/%3E%3Cpath d='M0 50 Q40 5 80 50'/%3E%3Cpath d='M20 80 Q40 25 60 80'/%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .reserve-thanks__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .reserve-thanks__icon {
+      display: block;
+      margin: 0 auto 1.1rem;
+      color: var(--color-gold-light);
+      opacity: 0.92;
+    }
+
+    .reserve-thanks__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.2rem, 4vw, 1.45rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--color-white);
+      margin: 0 0 1.25rem;
+      line-height: 1.5;
+    }
+
+    .reserve-thanks__body {
+      font-size: 0.9375rem;
+      line-height: 1.85;
+      color: rgba(250, 248, 244, 0.92);
+      text-align: left;
+      margin: 0 0 1.75rem;
+    }
+
+    .reserve-thanks__body p {
+      margin: 0 0 0.65rem;
+    }
+
+    .reserve-thanks__body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .reserve-thanks__btn {
+      width: 100%;
+      max-width: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .footer-copy {
@@ -835,13 +942,15 @@
 
     <section class="cta-block" id="reserve-form" aria-labelledby="reserve-form-heading">
       <div class="container">
-        <header class="reserve-section__head">
-          <p class="section__eyebrow">ご予約</p>
-          <h2 id="reserve-form-heading" class="section__title">阿木川源流米のご予約</h2>
-          <p class="reserve-section__lead">先着順のため、お早めにお申し込みください。必須項目をご入力のうえ、送信してください。</p>
-        </header>
+        <div class="reserve-form-flow">
+          <div class="reserve-form-step" id="reserve-form-step">
+            <header class="reserve-section__head">
+              <p class="section__eyebrow">ご予約</p>
+              <h2 id="reserve-form-heading" class="section__title">阿木川源流米のご予約</h2>
+              <p class="reserve-section__lead">先着順のため、お早めにお申し込みください。必須項目をご入力のうえ、送信してください。</p>
+            </header>
 
-        <form class="reserve-form__form" action="https://formspree.io/f/mbdwgyek" method="POST">
+            <form id="reserve-form-el" class="reserve-form__form" action="https://formspree.io/f/mbdwgyek" method="POST">
           <div class="form-field">
             <label class="form-label" for="rf-name">お名前<span class="badge-req" aria-hidden="true">必須</span></label>
             <input class="form-input" type="text" id="rf-name" name="name" autocomplete="name" required placeholder="例：山田 太郎">
@@ -917,9 +1026,34 @@
           </div>
 
           <div class="reserve-form__submit-wrap">
-            <button type="submit" class="btn btn--gold reserve-form__submit">送信する</button>
+            <button type="submit" class="btn btn--gold reserve-form__submit" id="reserve-form-submit">送信する</button>
           </div>
         </form>
+          </div>
+
+          <div class="reserve-thanks" id="reserve-thanks" hidden role="status" aria-live="polite" aria-labelledby="reserve-thanks-title">
+            <div class="reserve-thanks__inner">
+              <svg class="reserve-thanks__icon" width="56" height="52" viewBox="0 0 56 52" aria-hidden="true" focusable="false">
+                <path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" d="M28 48V10"/>
+                <path fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" d="M28 18c-8 2-14 8-16 16M28 22c8 1 15 7 17 15M28 26c-10 4-16 12-17 21M28 30c10 3 17 11 18 20"/>
+                <circle fill="currentColor" cx="14" cy="34" r="2" opacity="0.85"/>
+                <circle fill="currentColor" cx="42" cy="36" r="2" opacity="0.85"/>
+                <circle fill="currentColor" cx="22" cy="24" r="1.6" opacity="0.75"/>
+                <circle fill="currentColor" cx="36" cy="26" r="1.6" opacity="0.75"/>
+                <circle fill="currentColor" cx="18" cy="16" r="1.4" opacity="0.65"/>
+                <circle fill="currentColor" cx="38" cy="18" r="1.4" opacity="0.65"/>
+              </svg>
+              <h3 class="reserve-thanks__title" id="reserve-thanks-title" tabindex="-1">ご予約ありがとうございます。</h3>
+              <div class="reserve-thanks__body">
+                <p>阿木川源流米へのご予約を承りました。</p>
+                <p>秋の収穫まで、田んぼの様子をSNSで随時お届けします。</p>
+                <p>10月中旬、新米をお届けできる日を楽しみにお待ちください。</p>
+                <p>ご不明な点はメールにてお気軽にどうぞ。</p>
+              </div>
+              <a class="btn btn--gold reserve-thanks__btn" href="#" id="reserve-thanks-top">トップページに戻る</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -943,7 +1077,7 @@
   </footer>
   <script>
     (function () {
-      var form = document.querySelector("#reserve-form form");
+      var form = document.getElementById("reserve-form-el");
       var notes = document.getElementById("rf-notes");
       if (!form || !notes) return;
       var phDefault = notes.getAttribute("data-placeholder-default") || "ご質問やご要望があればご記入ください";
@@ -956,6 +1090,69 @@
         radio.addEventListener("change", syncNotesPlaceholder);
       });
       syncNotesPlaceholder();
+
+      var step = document.getElementById("reserve-form-step");
+      var thanks = document.getElementById("reserve-thanks");
+      var submitBtn = document.getElementById("reserve-form-submit");
+      var topBtn = document.getElementById("reserve-thanks-top");
+      var reserveSection = document.getElementById("reserve-form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+        if (!submitBtn || !step || !thanks) return;
+
+        submitBtn.disabled = true;
+        var label = submitBtn.textContent;
+        submitBtn.textContent = "送信中…";
+
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        })
+          .then(function (res) {
+            if (res.ok) {
+              step.hidden = true;
+              thanks.hidden = false;
+              if (reserveSection) {
+                reserveSection.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+              var titleEl = document.getElementById("reserve-thanks-title");
+              if (titleEl) titleEl.focus({ preventScroll: true });
+              return;
+            }
+            return res.json().then(
+              function (data) {
+                var msg = "送信に失敗しました。入力内容をご確認のうえ、再度お試しください。";
+                if (data && typeof data.error === "string") msg = data.error;
+                window.alert(msg);
+              },
+              function () {
+                window.alert("送信に失敗しました。しばらくしてから再度お試しください。");
+              }
+            );
+          })
+          .catch(function () {
+            window.alert("送信に失敗しました。通信環境をご確認のうえ、再度お試しください。");
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = label;
+          });
+      });
+
+      if (topBtn) {
+        topBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          var brand = document.querySelector(".site-header__brand");
+          if (brand) brand.focus({ preventScroll: true });
+        });
+      }
     })();
   </script>
 </body>
