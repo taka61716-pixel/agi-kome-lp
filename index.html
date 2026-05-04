@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="岐阜県恵那市阿木産コシヒカリ（玄米）の予約販売。阿木川源流の清流が育てた、農薬を減らした本物のお米。1,500kg限定・先着順。">
+  <title>阿木川源流米｜恵那・阿木産コシヒカリ 予約販売</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-deep-green: #1e3d32;
+      --color-deep-green-light: #2d5244;
+      --color-forest: #243d33;
+      --color-cream: #faf8f4;
+      --color-beige: #ebe4d8;
+      --color-beige-dark: #d9cfbf;
+      --color-gold: #b8943a;
+      --color-gold-light: #d4b76a;
+      --color-white: #ffffff;
+      --color-text: #2c2a26;
+      --color-text-muted: #5c574e;
+      --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+      --font-sans: "Noto Sans JP", "Hiragino Sans", sans-serif;
+      --shadow-soft: 0 4px 24px rgba(30, 61, 50, 0.08);
+      --radius: 4px;
+      --max-width: 720px;
+      --section-pad: clamp(3rem, 8vw, 5rem);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--color-text);
+      background: var(--color-cream);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      vertical-align: middle;
+    }
+
+    a {
+      color: var(--color-deep-green);
+    }
+
+    .container {
+      width: 100%;
+      max-width: calc(var(--max-width) + 2rem);
+      margin-inline: auto;
+      padding-inline: clamp(1.25rem, 5vw, 1.75rem);
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-beige-dark);
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 3.5rem;
+      padding-block: 0.65rem;
+    }
+
+    .site-header__brand {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: clamp(0.95rem, 3.5vw, 1.05rem);
+      color: var(--color-deep-green);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+    }
+
+    .btn--small {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius);
+      white-space: nowrap;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: min(92vh, 640px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--section-pad) 0;
+      background: linear-gradient(
+        165deg,
+        var(--color-deep-green) 0%,
+        var(--color-forest) 45%,
+        var(--color-deep-green-light) 100%
+      );
+      color: var(--color-cream);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 1;
+      max-width: min(40rem, 100%);
+    }
+
+    .hero__label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-gold-light);
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(212, 183, 106, 0.45);
+      padding-bottom: 0.35rem;
+    }
+
+    .hero__title {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: clamp(1rem, 3.4vw + 0.2rem, 1.75rem);
+      line-height: 1.65;
+      letter-spacing: 0.04em;
+      margin: 0 0 1.5rem;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+      text-wrap: balance;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    .hero__title-line {
+      display: block;
+    }
+
+    .hero__title-line--tail {
+      white-space: nowrap;
+    }
+
+    .hero__meta {
+      font-size: 0.875rem;
+      color: rgba(250, 248, 244, 0.88);
+      line-height: 1.9;
+    }
+
+    .hero__meta strong {
+      color: var(--color-white);
+      font-weight: 600;
+    }
+
+    .hero__scroll {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.6875rem;
+      letter-spacing: 0.15em;
+      color: rgba(250, 248, 244, 0.55);
+    }
+
+    /* Sections common */
+    section {
+      padding-block: var(--section-pad);
+    }
+
+    .section--beige {
+      background: var(--color-beige);
+    }
+
+    .section--white {
+      background: var(--color-white);
+    }
+
+    .section--green {
+      background: var(--color-deep-green);
+      color: var(--color-cream);
+    }
+
+    .section--green .section__lead,
+    .section--green p {
+      color: rgba(250, 248, 244, 0.92);
+    }
+
+    .section__eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--color-gold);
+      margin: 0 0 0.5rem;
+    }
+
+    .section--green .section__eyebrow {
+      color: var(--color-gold-light);
+    }
+
+    .section__title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.35rem, 4vw, 1.65rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin: 0 0 1.25rem;
+      line-height: 1.45;
+      color: var(--color-deep-green);
+    }
+
+    .section--green .section__title {
+      color: var(--color-cream);
+    }
+
+    .section__lead {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      margin: 0 0 1.5rem;
+    }
+
+    .section__body p {
+      margin: 0 0 1rem;
+    }
+
+    .section__body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* List cards */
+    .feature-list {
+      list-style: none;
+      margin: 1.5rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .feature-list li {
+      position: relative;
+      padding: 1rem 1rem 1rem 2.75rem;
+      background: var(--color-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--color-beige-dark);
+      font-size: 0.9375rem;
+    }
+
+    .feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--color-gold);
+      border-radius: 50%;
+    }
+
+    .section--beige .feature-list li {
+      background: var(--color-cream);
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      margin-top: 1.5rem;
+      padding: 1.25rem 1.35rem;
+      background: linear-gradient(135deg, rgba(184, 148, 58, 0.12) 0%, rgba(30, 61, 50, 0.06) 100%);
+      border: 1px solid rgba(184, 148, 58, 0.35);
+      border-radius: var(--radius);
+      font-size: 0.9375rem;
+    }
+
+    .section--green .highlight-box {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(212, 183, 106, 0.35);
+    }
+
+    /* Price table */
+    .price-table-wrap {
+      overflow-x: auto;
+      margin-top: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--color-beige-dark);
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+      background: var(--color-white);
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 1rem 1.15rem;
+      text-align: left;
+      border-bottom: 1px solid var(--color-beige);
+    }
+
+    .price-table th {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      background: var(--color-deep-green);
+      color: var(--color-cream);
+      border-bottom: none;
+    }
+
+    .price-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .price-table td strong {
+      font-size: 1.05rem;
+      color: var(--color-deep-green);
+    }
+
+    .price-note {
+      margin-top: 1rem;
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+    }
+
+    /* FAQ */
+    .faq-list {
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-beige-dark);
+      padding-block: 1.15rem;
+    }
+
+    .faq-item:first-child {
+      padding-top: 0;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: var(--color-deep-green);
+      font-size: 0.9375rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .faq-a {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    /* CTA block */
+    .cta-block {
+      text-align: center;
+      padding: clamp(2.5rem, 6vw, 3.5rem) 1.5rem;
+      background: linear-gradient(180deg, var(--color-beige) 0%, var(--color-cream) 100%);
+      border-top: 1px solid var(--color-beige-dark);
+      border-bottom: 1px solid var(--color-beige-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      min-height: 3.25rem;
+      padding: 0.85rem 2rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn--primary {
+      background: var(--color-deep-green);
+      color: var(--color-cream);
+      box-shadow: 0 4px 20px rgba(30, 61, 50, 0.25);
+    }
+
+    .btn--primary:hover {
+      background: var(--color-deep-green-light);
+      box-shadow: 0 6px 28px rgba(30, 61, 50, 0.3);
+    }
+
+    .btn--gold {
+      background: linear-gradient(145deg, var(--color-gold-light), var(--color-gold));
+      color: var(--color-deep-green);
+      box-shadow: 0 4px 16px rgba(184, 148, 58, 0.35);
+    }
+
+    .btn--gold:hover {
+      filter: brightness(1.05);
+    }
+
+    .cta-block__note {
+      margin: 1rem 0 0;
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+    }
+
+    .cta-block .section__eyebrow {
+      color: var(--color-gold);
+    }
+
+    .cta-block__text {
+      margin: 0 0 1.5rem;
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      max-width: 28rem;
+      margin-inline: auto;
+    }
+
+    .cta-block .section__title {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-copy {
+      margin: 0;
+    }
+
+    /* SNS */
+    .sns-block {
+      text-align: center;
+      padding-block: var(--section-pad);
+    }
+
+    .sns-block p {
+      margin: 0 0 1.25rem;
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+    }
+
+    .sns-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .sns-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.65rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--color-beige-dark);
+      border-radius: var(--radius);
+      background: var(--color-white);
+      color: var(--color-deep-green);
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .sns-links a:hover {
+      border-color: var(--color-gold);
+      background: var(--color-cream);
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      background: var(--color-deep-green);
+      color: rgba(250, 248, 244, 0.65);
+    }
+
+    .site-footer a {
+      color: var(--color-gold-light);
+    }
+
+    @media (min-width: 600px) {
+      .feature-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .price-table th,
+      .price-table td {
+        padding: 1.1rem 1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__brand" href="#">阿木川源流米</a>
+      <a class="btn btn--primary btn--small" href="#reserve">予約する</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <p class="hero__label">岐阜県恵那市阿木産・予約販売</p>
+        <h1 id="hero-title" class="hero__title"><span class="hero__title-line">孫のために、農薬を減らした。恵那山の清流が育てた、</span><span class="hero__title-line hero__title-line--tail">本物のコシヒカリ。</span></h1>
+        <p class="hero__meta">
+          <strong>阿木川源流米</strong><br>
+          コシヒカリ（玄米）／1,500kg限定・先着順<br>
+          発送：2025年10月中旬
+        </p>
+      </div>
+      <p class="hero__scroll">SCROLL</p>
+    </section>
+
+    <section class="section--beige" aria-labelledby="scarcity-title">
+      <div class="container">
+        <p class="section__eyebrow">希少性</p>
+        <h2 id="scarcity-title" class="section__title">今年の販売は、わずか1,500kg</h2>
+        <p class="section__lead">阿木川源流の田で収穫できる量には限りがあります。今年の予約販売は<strong>1,500kgのみ</strong>、<strong>先着順</strong>です。</p>
+        <div class="section__body">
+          <p>ご好評につき毎年早期に完売することがあります。完売次第、受付を終了いたします。お届けは玄米の状態で、2025年10月中旬の発送を予定しています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--white" aria-labelledby="origin-title">
+      <div class="container">
+        <p class="section__eyebrow">産地の魅力</p>
+        <h2 id="origin-title" class="section__title">阿木川最上流、恵那山麓の恵み</h2>
+        <p class="section__lead">清流が田んぼを潤し、昼夜の寒暖差がお米の甘みと粘りを引き出します。</p>
+        <ul class="feature-list">
+          <li>阿木川最上流の水と空気</li>
+          <li>恵那山麓の豊かな自然</li>
+          <li>清流がもたらすミネラルと冷涼な気候</li>
+          <li>神話の地に伝わる、古くからの里山の景観</li>
+          <li>日本一の田園風景とも称される地域の美しさ</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section--green" aria-labelledby="story-title">
+      <div class="container">
+        <p class="section__eyebrow">ストーリー</p>
+        <h2 id="story-title" class="section__title">家族でつなぐ、一枚の田んぼ</h2>
+        <div class="section__body">
+          <p>このお米は、退職後に「孫に安心して食べさせたい」という想いから、農薬を減らしながら作り始めた<strong>義父の米</strong>です。長年の経験と手間をかけ、少しずつ栽培を見直してきました。</p>
+          <p>そして今年から、その想いに<strong>息子も加わり</strong>、収穫や管理なども支えながら、同じ田でコシヒカリを育てています。代を超えて守りたいのは、味だけでなく、家族の食卓への誠実さです。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--beige" aria-labelledby="genmai-title">
+      <div class="container">
+        <p class="section__eyebrow">お届けの形</p>
+        <h2 id="genmai-title" class="section__title">なぜ玄米でお届けするのか</h2>
+        <p class="section__lead">精米したてが、いちばん香り高く美味しいからです。</p>
+        <div class="section__body">
+          <p>精米から時間が経つほど、酸化が進み、風味は少しずつ落ちていきます。だから私たちは、玄米のままお送りし、<strong>食べる直前に精米していただく</strong>ことをおすすめしています。</p>
+          <p>近所の精米所はもちろん、<strong>コイン精米機</strong>でも問題ありません。ご家庭で精米機をお使いの方は、そのまま精米してお召し上がりください。</p>
+        </div>
+        <div class="highlight-box">
+          精米直後のふっくらした食感と、コシヒカリ本来の香りを、ぜひその日のうちにお楽しみください。
+        </div>
+      </div>
+    </section>
+
+    <section class="section--white" aria-labelledby="product-title">
+      <div class="container">
+        <p class="section__eyebrow">商品・価格</p>
+        <h2 id="product-title" class="section__title">阿木川源流米 コシヒカリ（玄米）</h2>
+        <p class="section__lead">岐阜県恵那市阿木産。表示価格はすべて税込です。</p>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th scope="col">内容量</th>
+                <th scope="col">価格（税込）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10kg（玄米）</td>
+                <td><strong>7,700円</strong></td>
+              </tr>
+              <tr>
+                <td>30kg（玄米）</td>
+                <td><strong>23,100円</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="price-note">※販売総量1,500kg・先着順・完売次第終了。発送は2025年10月中旬予定（玄米）。</p>
+      </div>
+    </section>
+
+    <section class="section--beige" aria-labelledby="faq-title">
+      <div class="container">
+        <p class="section__eyebrow">よくあるご質問</p>
+        <h2 id="faq-title" class="section__title">FAQ</h2>
+        <ul class="faq-list">
+          <li class="faq-item">
+            <p class="faq-q">支払い方法は？</p>
+            <p class="faq-a">予約フォーム送信後、ご案内する方法にてお支払いいただく予定です。（詳細は受付完了メール等でご連絡します）</p>
+          </li>
+          <li class="faq-item">
+            <p class="faq-q">精米した白米で届けてもらえますか？</p>
+            <p class="faq-a">本商品は玄米でのお届けです。精米はお客様にてお願いしております。精米直後の美味しさをお届けしたいという想いからです。</p>
+          </li>
+          <li class="faq-item">
+            <p class="faq-q">発送日は選べますか？</p>
+            <p class="faq-a">2025年10月中旬頃を目安に順次発送予定です。日付のご指定は原則承れない場合がございます。</p>
+          </li>
+          <li class="faq-item">
+            <p class="faq-q">キャンセルはできますか？</p>
+            <p class="faq-a">キャンセル条件は予約受付時の案内に準じます。不明点はフォームの備考またはお問い合わせよりご連絡ください。</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="cta-block" id="reserve">
+      <p class="section__eyebrow">ご予約</p>
+      <h2 class="section__title">阿木川源流米の予約はこちら</h2>
+      <p class="cta-block__text">先着順のため、お早めにお申し込みください。GoogleフォームのURLは準備中です。</p>
+      <a class="btn btn--gold" href="#" target="_blank" rel="noopener noreferrer">予約フォームへ（準備中）</a>
+      <p class="cta-block__note">※リンクは後日設定予定です。現在タップしても別ページは開きません。</p>
+    </div>
+
+    <section class="sns-block section--white" aria-labelledby="sns-title">
+      <div class="container">
+        <p class="section__eyebrow">最新情報</p>
+        <h2 id="sns-title" class="section__title">SNSでフォローする</h2>
+        <p>栽培の様子や入荷・販売のお知らせを発信しています（アカウント開設後にURLを差し替えてください）。</p>
+        <div class="sns-links">
+          <a href="#" aria-label="Instagram（準備中）">Instagram</a>
+          <a href="#" aria-label="X（準備中）">X（旧Twitter）</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-copy">© 阿木川源流米｜岐阜県恵那市阿木産コシヒカリ（玄米）予約販売</p>
+    </div>
+  </footer>
+</body>
+</html>
