@@ -378,13 +378,30 @@
       color: var(--color-text-muted);
     }
 
-    /* CTA block */
+    /* Reservation block（CTA＋フォーム統合） */
     .cta-block {
-      text-align: center;
-      padding: clamp(2.5rem, 6vw, 3.5rem) 1.5rem;
+      padding: clamp(2.5rem, 6vw, 3.5rem) 0;
       background: linear-gradient(180deg, var(--color-beige) 0%, var(--color-cream) 100%);
       border-top: 1px solid var(--color-beige-dark);
       border-bottom: 1px solid var(--color-beige-dark);
+    }
+
+    .reserve-section__head {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .reserve-section__head .section__title {
+      margin-bottom: 0.65rem;
+    }
+
+    .reserve-section__lead {
+      margin: 0;
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      max-width: 28rem;
+      margin-inline: auto;
+      line-height: 1.65;
     }
 
     .btn {
@@ -429,26 +446,194 @@
       filter: brightness(1.05);
     }
 
-    .cta-block__note {
-      margin: 1rem 0 0;
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
-    }
-
     .cta-block .section__eyebrow {
       color: var(--color-gold);
     }
 
-    .cta-block__text {
-      margin: 0 0 1.5rem;
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
-      max-width: 28rem;
-      margin-inline: auto;
+    /* Reservation form */
+    #reserve-form {
+      scroll-margin-top: 5rem;
     }
 
-    .cta-block .section__title {
+    .reserve-form__form {
+      max-width: 32rem;
+      margin-inline: auto;
+      text-align: left;
+    }
+
+    .form-field {
+      margin-bottom: 1.35rem;
+    }
+
+    .form-field:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-deep-green);
+      margin-bottom: 0.45rem;
+      letter-spacing: 0.02em;
+    }
+
+    .form-label .badge-req {
+      display: inline-block;
+      margin-left: 0.35rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: var(--color-gold);
+      vertical-align: 0.05em;
+    }
+
+    .form-label .badge-opt {
+      display: inline-block;
+      margin-left: 0.35rem;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      vertical-align: 0.05em;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--color-text);
+      background: var(--color-white);
+      border: 1px solid var(--color-beige-dark);
+      border-radius: var(--radius);
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-deep-green);
+      box-shadow: 0 0 0 3px rgba(30, 61, 50, 0.12);
+    }
+
+    .form-textarea {
+      min-height: 6.5rem;
+      resize: vertical;
+    }
+
+    .form-fieldset {
+      margin: 0 0 1.35rem;
+      padding: 0;
+      border: none;
+    }
+
+    .form-fieldset .form-label {
       margin-bottom: 0.75rem;
+      text-align: center;
+    }
+
+    .order-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+    }
+
+    .order-card {
+      position: relative;
+      display: block;
+      margin: 0;
+      cursor: pointer;
+      border-radius: var(--radius);
+      border: 1px solid var(--color-beige-dark);
+      background: var(--color-white);
+      box-shadow: var(--shadow-soft);
+      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .order-card:hover {
+      border-color: rgba(184, 148, 58, 0.65);
+      background: var(--color-cream);
+    }
+
+    .order-card:has(input:checked) {
+      border-color: var(--color-deep-green);
+      background: linear-gradient(145deg, rgba(30, 61, 50, 0.07) 0%, rgba(184, 148, 58, 0.08) 100%);
+      box-shadow: 0 0 0 2px var(--color-deep-green), var(--shadow-soft);
+    }
+
+    .order-card:has(input:focus-visible) {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 2px;
+    }
+
+    .order-card input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .order-card__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      min-height: 5.35rem;
+      padding: 1.1rem 0.65rem 1.15rem;
+      font-family: var(--font-serif);
+    }
+
+    .order-card__kg {
+      font-size: clamp(1.05rem, 3.8vw, 1.2rem);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--color-deep-green);
+      text-align: center;
+    }
+
+    .order-card__price {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--color-text);
+      font-family: var(--font-sans);
+    }
+
+    .order-card__tax {
+      display: block;
+      margin-top: 0.15rem;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+    }
+
+    .form-order-note {
+      margin: 0.75rem 0 0;
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .reserve-form__submit-wrap {
+      margin-top: 1.75rem;
+    }
+
+    .reserve-form__submit {
+      width: 100%;
+      max-width: none;
+      border: none;
+      cursor: pointer;
+      min-height: 3.35rem;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
     }
 
     .footer-copy {
@@ -516,6 +701,7 @@
       .price-table td {
         padding: 1.1rem 1.35rem;
       }
+
     }
   </style>
 </head>
@@ -523,7 +709,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__brand" href="#">阿木川源流米</a>
-      <a class="btn btn--primary btn--small" href="#reserve">予約する</a>
+      <a class="btn btn--primary btn--small" href="#reserve-form">予約する</a>
     </div>
   </header>
 
@@ -647,13 +833,95 @@
       </div>
     </section>
 
-    <div class="cta-block" id="reserve">
-      <p class="section__eyebrow">ご予約</p>
-      <h2 class="section__title">阿木川源流米の予約はこちら</h2>
-      <p class="cta-block__text">先着順のため、お早めにお申し込みください。GoogleフォームのURLは準備中です。</p>
-      <a class="btn btn--gold" href="#" target="_blank" rel="noopener noreferrer">予約フォームへ（準備中）</a>
-      <p class="cta-block__note">※リンクは後日設定予定です。現在タップしても別ページは開きません。</p>
-    </div>
+    <section class="cta-block" id="reserve-form" aria-labelledby="reserve-form-heading">
+      <div class="container">
+        <header class="reserve-section__head">
+          <p class="section__eyebrow">ご予約</p>
+          <h2 id="reserve-form-heading" class="section__title">阿木川源流米のご予約</h2>
+          <p class="reserve-section__lead">先着順のため、お早めにお申し込みください。必須項目をご入力のうえ、送信してください。</p>
+        </header>
+
+        <form class="reserve-form__form" action="https://formspree.io/f/mbdwgyek" method="POST">
+          <div class="form-field">
+            <label class="form-label" for="rf-name">お名前<span class="badge-req" aria-hidden="true">必須</span></label>
+            <input class="form-input" type="text" id="rf-name" name="name" autocomplete="name" required placeholder="例：山田 太郎">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="rf-email">メールアドレス<span class="badge-req" aria-hidden="true">必須</span></label>
+            <input class="form-input" type="email" id="rf-email" name="email" autocomplete="email" required placeholder="例：xxx@example.com">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="rf-tel">電話番号<span class="badge-req" aria-hidden="true">必須</span></label>
+            <input class="form-input" type="tel" id="rf-tel" name="phone" autocomplete="tel" required placeholder="例：090-1234-5678">
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="rf-address">発送先住所<span class="badge-req" aria-hidden="true">必須</span></label>
+            <textarea class="form-textarea" id="rf-address" name="shipping_address" required rows="3" placeholder="郵便番号・住所・建物名・部屋番号までご記入ください"></textarea>
+          </div>
+
+          <fieldset class="form-fieldset">
+            <legend class="form-label">ご注文内容<span class="badge-req" aria-hidden="true">必須</span></legend>
+            <div class="order-cards">
+              <label class="order-card">
+                <input type="radio" name="order" value="10kg（7,700円・税込）" required>
+                <span class="order-card__inner">
+                  <span class="order-card__kg">10kg</span>
+                  <span class="order-card__price">7,700円<span class="order-card__tax">税込</span></span>
+                </span>
+              </label>
+              <label class="order-card">
+                <input type="radio" name="order" value="30kg（23,100円・税込）">
+                <span class="order-card__inner">
+                  <span class="order-card__kg">30kg</span>
+                  <span class="order-card__price">23,100円<span class="order-card__tax">税込</span></span>
+                </span>
+              </label>
+              <label class="order-card">
+                <input type="radio" name="order" value="60kg（46,200円・税込）">
+                <span class="order-card__inner">
+                  <span class="order-card__kg">60kg</span>
+                  <span class="order-card__price">46,200円<span class="order-card__tax">税込</span></span>
+                </span>
+              </label>
+              <label class="order-card">
+                <input type="radio" name="order" value="90kg（69,300円・税込）">
+                <span class="order-card__inner">
+                  <span class="order-card__kg">90kg</span>
+                  <span class="order-card__price">69,300円<span class="order-card__tax">税込</span></span>
+                </span>
+              </label>
+              <label class="order-card">
+                <input type="radio" name="order" value="120kg（92,400円・税込）">
+                <span class="order-card__inner">
+                  <span class="order-card__kg">120kg</span>
+                  <span class="order-card__price">92,400円<span class="order-card__tax">税込</span></span>
+                </span>
+              </label>
+              <label class="order-card">
+                <input type="radio" name="order" value="その他">
+                <span class="order-card__inner">
+                  <span class="order-card__kg">その他</span>
+                  <span class="order-card__price">—<span class="order-card__tax">備考欄に数量</span></span>
+                </span>
+              </label>
+            </div>
+            <p class="form-order-note">※「その他」を選ばれた場合は、備考欄にご希望の数量をご記入ください。</p>
+          </fieldset>
+
+          <div class="form-field">
+            <label class="form-label" for="rf-notes">備考・ご質問<span class="badge-opt">任意</span></label>
+            <textarea class="form-textarea" id="rf-notes" name="message" rows="4" placeholder="ご質問やご要望があればご記入ください" data-placeholder-default="ご質問やご要望があればご記入ください" data-placeholder-other="ご希望の数量をご記入ください"></textarea>
+          </div>
+
+          <div class="reserve-form__submit-wrap">
+            <button type="submit" class="btn btn--gold reserve-form__submit">送信する</button>
+          </div>
+        </form>
+      </div>
+    </section>
 
     <section class="sns-block section--white" aria-labelledby="sns-title">
       <div class="container">
@@ -673,5 +941,22 @@
       <p class="footer-copy">© 阿木川源流米｜岐阜県恵那市阿木産コシヒカリ（玄米）予約販売</p>
     </div>
   </footer>
+  <script>
+    (function () {
+      var form = document.querySelector("#reserve-form form");
+      var notes = document.getElementById("rf-notes");
+      if (!form || !notes) return;
+      var phDefault = notes.getAttribute("data-placeholder-default") || "ご質問やご要望があればご記入ください";
+      var phOther = notes.getAttribute("data-placeholder-other") || "ご希望の数量をご記入ください";
+      function syncNotesPlaceholder() {
+        var other = form.querySelector('input[name="order"][value="その他"]');
+        notes.placeholder = other && other.checked ? phOther : phDefault;
+      }
+      form.querySelectorAll('input[name="order"]').forEach(function (radio) {
+        radio.addEventListener("change", syncNotesPlaceholder);
+      });
+      syncNotesPlaceholder();
+    })();
+  </script>
 </body>
 </html>
