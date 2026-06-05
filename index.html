@@ -1,1159 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="岐阜県恵那市阿木産コシヒカリ（玄米）の予約販売。阿木川源流の清流が育てた、農薬を減らした本物のお米。1,500kg限定・先着順。">
-  <title>阿木川源流米｜恵那・阿木産コシヒカリ 予約販売</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --color-deep-green: #1e3d32;
-      --color-deep-green-light: #2d5244;
-      --color-forest: #243d33;
-      --color-cream: #faf8f4;
-      --color-beige: #ebe4d8;
-      --color-beige-dark: #d9cfbf;
-      --color-gold: #b8943a;
-      --color-gold-light: #d4b76a;
-      --color-white: #ffffff;
-      --color-text: #2c2a26;
-      --color-text-muted: #5c574e;
-      --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-      --font-sans: "Noto Sans JP", "Hiragino Sans", sans-serif;
-      --shadow-soft: 0 4px 24px rgba(30, 61, 50, 0.08);
-      --radius: 4px;
-      --max-width: 720px;
-      --section-pad: clamp(3rem, 8vw, 5rem);
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.75;
-      color: var(--color-text);
-      background: var(--color-cream);
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      vertical-align: middle;
-    }
-
-    a {
-      color: var(--color-deep-green);
-    }
-
-    .container {
-      width: 100%;
-      max-width: calc(var(--max-width) + 2rem);
-      margin-inline: auto;
-      padding-inline: clamp(1.25rem, 5vw, 1.75rem);
-    }
-
-    /* Header */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250, 248, 244, 0.92);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--color-beige-dark);
-    }
-
-    .site-header__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      min-height: 3.5rem;
-      padding-block: 0.65rem;
-    }
-
-    .site-header__brand {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: clamp(0.95rem, 3.5vw, 1.05rem);
-      color: var(--color-deep-green);
-      letter-spacing: 0.08em;
-      text-decoration: none;
-    }
-
-    .btn--small {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5rem 1rem;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: var(--radius);
-      white-space: nowrap;
-    }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      min-height: min(92vh, 640px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: var(--section-pad) 0;
-      background: linear-gradient(
-        165deg,
-        var(--color-deep-green) 0%,
-        var(--color-forest) 45%,
-        var(--color-deep-green-light) 100%
-      );
-      color: var(--color-cream);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    .hero__inner {
-      position: relative;
-      z-index: 1;
-      max-width: min(40rem, 100%);
-    }
-
-    .hero__label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--color-gold-light);
-      margin-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(212, 183, 106, 0.45);
-      padding-bottom: 0.35rem;
-    }
-
-    .hero__title {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: clamp(1rem, 3.4vw + 0.2rem, 1.75rem);
-      line-height: 1.65;
-      letter-spacing: 0.04em;
-      margin: 0 0 1.5rem;
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
-      text-wrap: balance;
-      word-break: keep-all;
-      overflow-wrap: normal;
-    }
-
-    .hero__title-line {
-      display: block;
-    }
-
-    .hero__title-line--tail {
-      white-space: nowrap;
-    }
-
-    .hero__meta {
-      font-size: 0.875rem;
-      color: rgba(250, 248, 244, 0.88);
-      line-height: 1.9;
-    }
-
-    .hero__meta strong {
-      color: var(--color-white);
-      font-weight: 600;
-    }
-
-    .hero__scroll {
-      position: absolute;
-      bottom: 1.5rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.6875rem;
-      letter-spacing: 0.15em;
-      color: rgba(250, 248, 244, 0.55);
-    }
-
-    /* Sections common */
-    section {
-      padding-block: var(--section-pad);
-    }
-
-    .section--beige {
-      background: var(--color-beige);
-    }
-
-    .section--white {
-      background: var(--color-white);
-    }
-
-    .section--green {
-      background: var(--color-deep-green);
-      color: var(--color-cream);
-    }
-
-    .section--green .section__lead,
-    .section--green p {
-      color: rgba(250, 248, 244, 0.92);
-    }
-
-    .section__eyebrow {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: var(--color-gold);
-      margin: 0 0 0.5rem;
-    }
-
-    .section--green .section__eyebrow {
-      color: var(--color-gold-light);
-    }
-
-    .section__title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.35rem, 4vw, 1.65rem);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      margin: 0 0 1.25rem;
-      line-height: 1.45;
-      color: var(--color-deep-green);
-    }
-
-    .section--green .section__title {
-      color: var(--color-cream);
-    }
-
-    .section__lead {
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
-      margin: 0 0 1.5rem;
-    }
-
-    .section__body p {
-      margin: 0 0 1rem;
-    }
-
-    .section__body p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* List cards */
-    .feature-list {
-      list-style: none;
-      margin: 1.5rem 0 0;
-      padding: 0;
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .feature-list li {
-      position: relative;
-      padding: 1rem 1rem 1rem 2.75rem;
-      background: var(--color-white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--color-beige-dark);
-      font-size: 0.9375rem;
-    }
-
-    .feature-list li::before {
-      content: "";
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
-      background: var(--color-gold);
-      border-radius: 50%;
-    }
-
-    .section--beige .feature-list li {
-      background: var(--color-cream);
-    }
-
-    /* Highlight box */
-    .highlight-box {
-      margin-top: 1.5rem;
-      padding: 1.25rem 1.35rem;
-      background: linear-gradient(135deg, rgba(184, 148, 58, 0.12) 0%, rgba(30, 61, 50, 0.06) 100%);
-      border: 1px solid rgba(184, 148, 58, 0.35);
-      border-radius: var(--radius);
-      font-size: 0.9375rem;
-    }
-
-    .section--green .highlight-box {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(212, 183, 106, 0.35);
-    }
-
-    /* Price table */
-    .price-table-wrap {
-      overflow-x: auto;
-      margin-top: 1.5rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--color-beige-dark);
-    }
-
-    .price-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9375rem;
-      background: var(--color-white);
-    }
-
-    .price-table th,
-    .price-table td {
-      padding: 1rem 1.15rem;
-      text-align: left;
-      border-bottom: 1px solid var(--color-beige);
-    }
-
-    .price-table th {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      background: var(--color-deep-green);
-      color: var(--color-cream);
-      border-bottom: none;
-    }
-
-    .price-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .price-table td strong {
-      font-size: 1.05rem;
-      color: var(--color-deep-green);
-    }
-
-    .price-note {
-      margin-top: 1rem;
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
-    }
-
-    /* FAQ */
-    .faq-list {
-      margin: 1.5rem 0 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .faq-item {
-      border-bottom: 1px solid var(--color-beige-dark);
-      padding-block: 1.15rem;
-    }
-
-    .faq-item:first-child {
-      padding-top: 0;
-    }
-
-    .faq-q {
-      font-weight: 600;
-      color: var(--color-deep-green);
-      font-size: 0.9375rem;
-      margin: 0 0 0.5rem;
-    }
-
-    .faq-a {
-      margin: 0;
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-    }
-
-    /* Reservation block（CTA＋フォーム統合） */
-    .cta-block {
-      padding: clamp(2.5rem, 6vw, 3.5rem) 0;
-      background: linear-gradient(180deg, var(--color-beige) 0%, var(--color-cream) 100%);
-      border-top: 1px solid var(--color-beige-dark);
-      border-bottom: 1px solid var(--color-beige-dark);
-    }
-
-    .reserve-section__head {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .reserve-section__head .section__title {
-      margin-bottom: 0.65rem;
-    }
-
-    .reserve-section__lead {
-      margin: 0;
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
-      max-width: 28rem;
-      margin-inline: auto;
-      line-height: 1.65;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      min-height: 3.25rem;
-      padding: 0.85rem 2rem;
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: var(--radius);
-      border: none;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .btn:active {
-      transform: scale(0.98);
-    }
-
-    .btn--primary {
-      background: var(--color-deep-green);
-      color: var(--color-cream);
-      box-shadow: 0 4px 20px rgba(30, 61, 50, 0.25);
-    }
-
-    .btn--primary:hover {
-      background: var(--color-deep-green-light);
-      box-shadow: 0 6px 28px rgba(30, 61, 50, 0.3);
-    }
-
-    .btn--gold {
-      background: linear-gradient(145deg, var(--color-gold-light), var(--color-gold));
-      color: var(--color-deep-green);
-      box-shadow: 0 4px 16px rgba(184, 148, 58, 0.35);
-    }
-
-    .btn--gold:hover {
-      filter: brightness(1.05);
-    }
-
-    .cta-block .section__eyebrow {
-      color: var(--color-gold);
-    }
-
-    /* Reservation form */
-    #reserve-form {
-      scroll-margin-top: 5rem;
-    }
-
-    .reserve-form__form {
-      text-align: left;
-    }
-
-    .form-field {
-      margin-bottom: 1.35rem;
-    }
-
-    .form-field:last-of-type {
-      margin-bottom: 0;
-    }
-
-    .form-label {
-      display: block;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--color-deep-green);
-      margin-bottom: 0.45rem;
-      letter-spacing: 0.02em;
-    }
-
-    .form-label .badge-req {
-      display: inline-block;
-      margin-left: 0.35rem;
-      font-size: 0.6875rem;
-      font-weight: 600;
-      color: var(--color-gold);
-      vertical-align: 0.05em;
-    }
-
-    .form-label .badge-opt {
-      display: inline-block;
-      margin-left: 0.35rem;
-      font-size: 0.6875rem;
-      font-weight: 500;
-      color: var(--color-text-muted);
-      vertical-align: 0.05em;
-    }
-
-    .form-input,
-    .form-textarea {
-      width: 100%;
-      padding: 0.75rem 0.9rem;
-      font-family: var(--font-sans);
-      font-size: 1rem;
-      line-height: 1.5;
-      color: var(--color-text);
-      background: var(--color-white);
-      border: 1px solid var(--color-beige-dark);
-      border-radius: var(--radius);
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus {
-      outline: none;
-      border-color: var(--color-deep-green);
-      box-shadow: 0 0 0 3px rgba(30, 61, 50, 0.12);
-    }
-
-    .form-textarea {
-      min-height: 6.5rem;
-      resize: vertical;
-    }
-
-    .form-fieldset {
-      margin: 0 0 1.35rem;
-      padding: 0;
-      border: none;
-    }
-
-    .form-fieldset .form-label {
-      margin-bottom: 0.75rem;
-      text-align: center;
-    }
-
-    .order-cards {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.65rem;
-    }
-
-    .order-card {
-      position: relative;
-      display: block;
-      margin: 0;
-      cursor: pointer;
-      border-radius: var(--radius);
-      border: 1px solid var(--color-beige-dark);
-      background: var(--color-white);
-      box-shadow: var(--shadow-soft);
-      transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .order-card:hover {
-      border-color: rgba(184, 148, 58, 0.65);
-      background: var(--color-cream);
-    }
-
-    .order-card:has(input:checked) {
-      border-color: var(--color-deep-green);
-      background: linear-gradient(145deg, rgba(30, 61, 50, 0.07) 0%, rgba(184, 148, 58, 0.08) 100%);
-      box-shadow: 0 0 0 2px var(--color-deep-green), var(--shadow-soft);
-    }
-
-    .order-card:has(input:focus-visible) {
-      outline: 2px solid var(--color-gold);
-      outline-offset: 2px;
-    }
-
-    .order-card input {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    .order-card__inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.2rem;
-      min-height: 5.35rem;
-      padding: 1.1rem 0.65rem 1.15rem;
-      font-family: var(--font-serif);
-    }
-
-    .order-card__kg {
-      font-size: clamp(1.05rem, 3.8vw, 1.2rem);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--color-deep-green);
-      text-align: center;
-    }
-
-    .order-card__price {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--color-text);
-      font-family: var(--font-sans);
-    }
-
-    .order-card__tax {
-      display: block;
-      margin-top: 0.15rem;
-      font-size: 0.6875rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      color: var(--color-text-muted);
-    }
-
-    .form-order-note {
-      margin: 0.75rem 0 0;
-      font-size: 0.8125rem;
-      color: var(--color-text-muted);
-      line-height: 1.55;
-      text-align: center;
-    }
-
-    .reserve-form__submit-wrap {
-      margin-top: 1.75rem;
-    }
-
-    .reserve-form__submit {
-      width: 100%;
-      max-width: none;
-      border: none;
-      cursor: pointer;
-      min-height: 3.35rem;
-      font-size: 1.05rem;
-      letter-spacing: 0.06em;
-    }
-
-    .reserve-form__submit:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-      filter: grayscale(0.15);
-    }
-
-    .reserve-form-flow {
-      max-width: 32rem;
-      margin-inline: auto;
-    }
-
-    .reserve-form-step[hidden] {
-      display: none !important;
-    }
-
-    .reserve-thanks {
-      text-align: center;
-      padding: clamp(2rem, 5vw, 2.75rem) clamp(1.25rem, 4vw, 2rem) clamp(2rem, 5vw, 2.5rem);
-      background: linear-gradient(
-        168deg,
-        var(--color-deep-green) 0%,
-        var(--color-forest) 42%,
-        var(--color-deep-green-light) 100%
-      );
-      color: var(--color-cream);
-      border-radius: var(--radius);
-      border: 1px solid rgba(212, 183, 106, 0.28);
-      box-shadow: 0 8px 32px rgba(30, 61, 50, 0.25);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .reserve-thanks[hidden] {
-      display: none !important;
-    }
-
-    .reserve-thanks::before {
-      content: "";
-      display: block;
-      height: 3px;
-      width: min(12rem, 70%);
-      margin: 0 auto 1.35rem;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--color-gold) 20%,
-        var(--color-gold-light) 50%,
-        var(--color-gold) 80%,
-        transparent
-      );
-      border-radius: 2px;
-    }
-
-    .reserve-thanks::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='0.8'%3E%3Cpath d='M10 70 Q40 20 70 70'/%3E%3Cpath d='M0 50 Q40 5 80 50'/%3E%3Cpath d='M20 80 Q40 25 60 80'/%3E%3C/g%3E%3C/svg%3E");
-      pointer-events: none;
-      opacity: 1;
-    }
-
-    .reserve-thanks__inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .reserve-thanks__icon {
-      display: block;
-      margin: 0 auto 1.1rem;
-      color: var(--color-gold-light);
-      opacity: 0.92;
-    }
-
-    .reserve-thanks__title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.2rem, 4vw, 1.45rem);
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--color-white);
-      margin: 0 0 1.25rem;
-      line-height: 1.5;
-    }
-
-    .reserve-thanks__body {
-      font-size: 0.9375rem;
-      line-height: 1.85;
-      color: rgba(250, 248, 244, 0.92);
-      text-align: left;
-      margin: 0 0 1.75rem;
-    }
-
-    .reserve-thanks__body p {
-      margin: 0 0 0.65rem;
-    }
-
-    .reserve-thanks__body p:last-child {
-      margin-bottom: 0;
-    }
-
-    .reserve-thanks__btn {
-      width: 100%;
-      max-width: none;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .footer-copy {
-      margin: 0;
-    }
-
-    /* SNS */
-    .sns-block {
-      text-align: center;
-      padding-block: var(--section-pad);
-    }
-
-    .sns-block p {
-      margin: 0 0 1.25rem;
-      font-size: 0.9375rem;
-      color: var(--color-text-muted);
-    }
-
-    .sns-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: center;
-    }
-
-    .sns-links a {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.65rem 1.25rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      text-decoration: none;
-      border: 1px solid var(--color-beige-dark);
-      border-radius: var(--radius);
-      background: var(--color-white);
-      color: var(--color-deep-green);
-      transition: border-color 0.15s, background 0.15s;
-    }
-
-    .sns-links a:hover {
-      border-color: var(--color-gold);
-      background: var(--color-cream);
-    }
-
-    /* Footer */
-    .site-footer {
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--color-text-muted);
-      background: var(--color-deep-green);
-      color: rgba(250, 248, 244, 0.65);
-    }
-
-    .site-footer a {
-      color: var(--color-gold-light);
-    }
-
-    @media (min-width: 600px) {
-      .feature-list {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .price-table th,
-      .price-table td {
-        padding: 1.1rem 1.35rem;
-      }
-
-    }
-  </style>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <a class="site-header__brand" href="#">阿木川源流米</a>
-      <a class="btn btn--primary btn--small" href="#reserve-form">予約する</a>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__inner">
-        <p class="hero__label">岐阜県恵那市阿木産・予約販売</p>
-        <h1 id="hero-title" class="hero__title"><span class="hero__title-line">孫のために、農薬を減らした。恵那山の清流が育てた、</span><span class="hero__title-line hero__title-line--tail">本物のコシヒカリ。</span></h1>
-        <p class="hero__meta">
-          <strong>阿木川源流米</strong><br>
-          コシヒカリ（玄米）／1,500kg限定・先着順<br>
-          発送：2025年10月中旬
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>阿木川源流米 | 予約受付LP</title>
+    <meta
+      name="description"
+      content="阿木川源流域からお届けするお米の予約受付LP。5kg・10kgの予約相談を受け付けています。"
+    />
+    <meta property="og:title" content="阿木川源流米 | 予約受付LP" />
+    <meta
+      property="og:description"
+      content="阿木川源流域からお届けするお米。家庭用にも贈り物にも。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/rice-hero.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="サイトヘッダー">
+      <a class="brand" href="#top" aria-label="阿木川源流米 トップへ">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>阿木川源流米</span>
+      </a>
+      <nav class="site-nav" aria-label="ページ内ナビゲーション">
+        <a href="#quality">おいしさ</a>
+        <a href="#products">商品</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="header-cta" href="#order">注文する</a>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="阿木川源流米の紹介">
+        <img class="hero-image" src="assets/rice-hero.png" alt="田んぼを背景にした米袋、炊きたてご飯、稲穂" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">予約受付中・産地直送</p>
+          <h1>阿木川源流米</h1>
+          <p class="lead">
+            つや、甘み、ほどよい粘り。炊きたてはもちろん、
+            お弁当やおにぎりでもおいしさが続く、毎日のためのお米です。
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#order">今すぐ注文</a>
+            <a class="secondary-button" href="#quality">特徴を見る</a>
+          </div>
+          <dl class="hero-stats" aria-label="商品概要">
+            <div>
+              <dt>内容量</dt>
+              <dd>5kg / 10kg</dd>
+            </div>
+            <div>
+              <dt>価格</dt>
+              <dd>予約時に案内</dd>
+            </div>
+            <div>
+              <dt>発送</dt>
+              <dd>精米後3営業日以内</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="intro-band" aria-label="販売メッセージ">
+        <div class="section-inner intro-grid">
+          <p class="intro-copy">
+            家族の朝ごはん、仕事の日のお弁当、週末の炊き込みご飯。
+            どんな食卓にもなじむ、派手すぎず確かなおいしさを目指しました。
+          </p>
+          <div class="trust-row" aria-label="品質ポイント">
+            <span>小分け配送対応</span>
+            <span>熨斗相談可</span>
+            <span>定期便受付中</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="quality" class="section quality-section">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Taste & Quality</p>
+            <h2>毎日食べても、また食べたくなる。</h2>
+          </div>
+          <div class="quality-grid">
+            <article class="quality-item">
+              <span class="quality-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M12 3c4.2 3.1 6.3 6.2 6.3 9.4A6.3 6.3 0 1 1 5.7 12.4C5.7 9.2 7.8 6.1 12 3Z" />
+                </svg>
+              </span>
+              <h3>ふっくらした粒感</h3>
+              <p>炊き上がりのつやと粒立ちがよく、主菜の味を引き立てます。</p>
+            </article>
+            <article class="quality-item">
+              <span class="quality-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M4 12c4.8-6.2 11.2-6.2 16 0-4.8 6.2-11.2 6.2-16 0Z" />
+                  <path d="M9.5 12a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z" />
+                </svg>
+              </span>
+              <h3>冷めても甘い</h3>
+              <p>おにぎりやお弁当でも甘みを感じやすい、日常使いに強い味わいです。</p>
+            </article>
+            <article class="quality-item">
+              <span class="quality-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img">
+                  <path d="M5 20c7.5-1.8 12.5-7.2 15-16C11.2 6.5 5.8 12 4 20h1Z" />
+                  <path d="M7 17c2.5-3.2 5.2-5.7 8.3-7.8" />
+                </svg>
+              </span>
+              <h3>必要な分だけ精米</h3>
+              <p>注文に合わせて精米し、香りと鮮度を保った状態でお届けします。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="taste-band" aria-label="味のバランス">
+        <div class="section-inner taste-layout">
+          <div>
+            <p class="eyebrow">Rice Profile</p>
+            <h2>ほどよい粘りと、すっきりした後味。</h2>
+            <p>
+              濃い味のおかずにも、シンプルな卵かけご飯にも合わせやすいバランスです。
+              炊飯器でも土鍋でも扱いやすく、ご家庭の定番米として使えます。
+            </p>
+          </div>
+          <div class="taste-meter" aria-label="味の指標">
+            <div class="meter-row">
+              <span>甘み</span>
+              <meter value="86" min="0" max="100">86%</meter>
+            </div>
+            <div class="meter-row">
+              <span>粘り</span>
+              <meter value="74" min="0" max="100">74%</meter>
+            </div>
+            <div class="meter-row">
+              <span>粒感</span>
+              <meter value="82" min="0" max="100">82%</meter>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="section product-section">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">Lineup</p>
+            <h2>ご家庭にも、まとめ買いにも。</h2>
+          </div>
+          <div class="product-grid">
+            <article class="product-card" data-product="白米 5kg">
+              <p class="tag">まずはお試し</p>
+              <h3>白米 5kg</h3>
+              <p class="product-desc">少人数のご家庭や初回購入に。</p>
+              <p class="price note-price">価格は予約時に案内</p>
+              <button class="select-button" type="button">選択</button>
+            </article>
+            <article class="product-card featured" data-product="白米 10kg">
+              <p class="tag">人気</p>
+              <h3>白米 10kg</h3>
+              <p class="product-desc">毎日のごはんをしっかり確保。</p>
+              <p class="price note-price">価格は予約時に案内</p>
+              <button class="select-button" type="button">選択</button>
+            </article>
+            <article class="product-card" data-product="白米 10kg 定期便">
+              <p class="tag">定期便</p>
+              <h3>白米 10kg 定期</h3>
+              <p class="product-desc">月1回のお届けで買い忘れを防止。</p>
+              <p class="price note-price">価格は予約時に案内</p>
+              <button class="select-button" type="button">選択</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="order" class="order-section">
+        <div class="section-inner order-layout">
+          <div class="order-copy">
+            <p class="eyebrow">Order</p>
+            <h2>炊きたての香りを、食卓へ。</h2>
+            <p>
+              ご注文はLINE・Instagram DM・メールで受け付けています。
+              数量、配送先、希望日をお知らせください。
+            </p>
+          </div>
+          <form class="order-panel" aria-label="注文メモ作成フォーム">
+            <label>
+              商品
+              <select id="productSelect">
+                <option value="白米 5kg">白米 5kg</option>
+                <option value="白米 10kg" selected>白米 10kg</option>
+                <option value="白米 10kg 定期便">白米 10kg 定期便</option>
+              </select>
+            </label>
+            <label>
+              数量
+              <input id="quantityInput" type="number" min="1" value="1" />
+            </label>
+            <div class="order-total" aria-live="polite">
+              <span>予約内容</span>
+              <strong id="orderSummary">白米 10kg × 1</strong>
+            </div>
+            <a id="lineLink" class="primary-button wide" href="https://line.me/R/ti/p/" target="_blank" rel="noreferrer">
+              LINEで注文相談
+            </a>
+            <a id="mailLink" class="text-link" href="mailto:info@example.com">メールで問い合わせ</a>
+          </form>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq-section">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">FAQ</p>
+            <h2>よくある質問</h2>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>送料はかかりますか？</summary>
+              <p>配送地域と数量により変わります。注文前に合計金額をお知らせします。</p>
+            </details>
+            <details>
+              <summary>玄米での注文はできますか？</summary>
+              <p>在庫状況により対応できます。ご希望の内容量とあわせてご相談ください。</p>
+            </details>
+            <details>
+              <summary>贈答用にできますか？</summary>
+              <p>熨斗や送り先別配送の相談を受け付けています。用途をお知らせください。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-inner footer-inner">
+        <p class="brand footer-brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>阿木川源流米</span>
         </p>
+        <p>産地直送のお米販売</p>
       </div>
-      <p class="hero__scroll">SCROLL</p>
-    </section>
+    </footer>
 
-    <section class="section--beige" aria-labelledby="scarcity-title">
-      <div class="container">
-        <p class="section__eyebrow">希少性</p>
-        <h2 id="scarcity-title" class="section__title">今年の販売は、わずか1,500kg</h2>
-        <p class="section__lead">阿木川源流の田で収穫できる量には限りがあります。今年の予約販売は<strong>1,500kgのみ</strong>、<strong>先着順</strong>です。</p>
-        <div class="section__body">
-          <p>ご好評につき毎年早期に完売することがあります。完売次第、受付を終了いたします。お届けは玄米の状態で、2025年10月中旬の発送を予定しています。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section--white" aria-labelledby="origin-title">
-      <div class="container">
-        <p class="section__eyebrow">産地の魅力</p>
-        <h2 id="origin-title" class="section__title">阿木川最上流、恵那山麓の恵み</h2>
-        <p class="section__lead">清流が田んぼを潤し、昼夜の寒暖差がお米の甘みと粘りを引き出します。</p>
-        <ul class="feature-list">
-          <li>阿木川最上流の水と空気</li>
-          <li>恵那山麓の豊かな自然</li>
-          <li>清流がもたらすミネラルと冷涼な気候</li>
-          <li>神話の地に伝わる、古くからの里山の景観</li>
-          <li>日本一の田園風景とも称される地域の美しさ</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section--green" aria-labelledby="story-title">
-      <div class="container">
-        <p class="section__eyebrow">ストーリー</p>
-        <h2 id="story-title" class="section__title">家族でつなぐ、一枚の田んぼ</h2>
-        <div class="section__body">
-          <p>このお米は、退職後に「孫に安心して食べさせたい」という想いから、農薬を減らしながら作り始めた<strong>義父の米</strong>です。長年の経験と手間をかけ、少しずつ栽培を見直してきました。</p>
-          <p>そして今年から、その想いに<strong>息子も加わり</strong>、収穫や管理なども支えながら、同じ田でコシヒカリを育てています。代を超えて守りたいのは、味だけでなく、家族の食卓への誠実さです。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section--beige" aria-labelledby="genmai-title">
-      <div class="container">
-        <p class="section__eyebrow">お届けの形</p>
-        <h2 id="genmai-title" class="section__title">なぜ玄米でお届けするのか</h2>
-        <p class="section__lead">精米したてが、いちばん香り高く美味しいからです。</p>
-        <div class="section__body">
-          <p>精米から時間が経つほど、酸化が進み、風味は少しずつ落ちていきます。だから私たちは、玄米のままお送りし、<strong>食べる直前に精米していただく</strong>ことをおすすめしています。</p>
-          <p>近所の精米所はもちろん、<strong>コイン精米機</strong>でも問題ありません。ご家庭で精米機をお使いの方は、そのまま精米してお召し上がりください。</p>
-        </div>
-        <div class="highlight-box">
-          精米直後のふっくらした食感と、コシヒカリ本来の香りを、ぜひその日のうちにお楽しみください。
-        </div>
-      </div>
-    </section>
-
-    <section class="section--white" aria-labelledby="product-title">
-      <div class="container">
-        <p class="section__eyebrow">商品・価格</p>
-        <h2 id="product-title" class="section__title">阿木川源流米 コシヒカリ（玄米）</h2>
-        <p class="section__lead">岐阜県恵那市阿木産。表示価格はすべて税込です。</p>
-        <div class="price-table-wrap">
-          <table class="price-table">
-            <thead>
-              <tr>
-                <th scope="col">内容量</th>
-                <th scope="col">価格（税込）</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>10kg（玄米）</td>
-                <td><strong>7,700円</strong></td>
-              </tr>
-              <tr>
-                <td>30kg（玄米）</td>
-                <td><strong>23,100円</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="price-note">※販売総量1,500kg・先着順・完売次第終了。発送は2025年10月中旬予定（玄米）。</p>
-      </div>
-    </section>
-
-    <section class="section--beige" aria-labelledby="faq-title">
-      <div class="container">
-        <p class="section__eyebrow">よくあるご質問</p>
-        <h2 id="faq-title" class="section__title">FAQ</h2>
-        <ul class="faq-list">
-          <li class="faq-item">
-            <p class="faq-q">支払い方法は？</p>
-            <p class="faq-a">予約フォーム送信後、ご案内する方法にてお支払いいただく予定です。（詳細は受付完了メール等でご連絡します）</p>
-          </li>
-          <li class="faq-item">
-            <p class="faq-q">精米した白米で届けてもらえますか？</p>
-            <p class="faq-a">本商品は玄米でのお届けです。精米はお客様にてお願いしております。精米直後の美味しさをお届けしたいという想いからです。</p>
-          </li>
-          <li class="faq-item">
-            <p class="faq-q">発送日は選べますか？</p>
-            <p class="faq-a">2025年10月中旬頃を目安に順次発送予定です。日付のご指定は原則承れない場合がございます。</p>
-          </li>
-          <li class="faq-item">
-            <p class="faq-q">キャンセルはできますか？</p>
-            <p class="faq-a">キャンセル条件は予約受付時の案内に準じます。不明点はフォームの備考またはお問い合わせよりご連絡ください。</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="cta-block" id="reserve-form" aria-labelledby="reserve-form-heading">
-      <div class="container">
-        <div class="reserve-form-flow">
-          <div class="reserve-form-step" id="reserve-form-step">
-            <header class="reserve-section__head">
-              <p class="section__eyebrow">ご予約</p>
-              <h2 id="reserve-form-heading" class="section__title">阿木川源流米のご予約</h2>
-              <p class="reserve-section__lead">先着順のため、お早めにお申し込みください。必須項目をご入力のうえ、送信してください。</p>
-            </header>
-
-            <form id="reserve-form-el" class="reserve-form__form" action="https://formspree.io/f/mbdwgyek" method="POST">
-          <div class="form-field">
-            <label class="form-label" for="rf-name">お名前<span class="badge-req" aria-hidden="true">必須</span></label>
-            <input class="form-input" type="text" id="rf-name" name="name" autocomplete="name" required placeholder="例：山田 太郎">
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="rf-email">メールアドレス<span class="badge-req" aria-hidden="true">必須</span></label>
-            <input class="form-input" type="email" id="rf-email" name="email" autocomplete="email" required placeholder="例：xxx@example.com">
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="rf-tel">電話番号<span class="badge-req" aria-hidden="true">必須</span></label>
-            <input class="form-input" type="tel" id="rf-tel" name="phone" autocomplete="tel" required placeholder="例：090-1234-5678">
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="rf-address">発送先住所<span class="badge-req" aria-hidden="true">必須</span></label>
-            <textarea class="form-textarea" id="rf-address" name="shipping_address" required rows="3" placeholder="郵便番号・住所・建物名・部屋番号までご記入ください"></textarea>
-          </div>
-
-          <fieldset class="form-fieldset">
-            <legend class="form-label">ご注文内容<span class="badge-req" aria-hidden="true">必須</span></legend>
-            <div class="order-cards">
-              <label class="order-card">
-                <input type="radio" name="order" value="10kg（7,700円・税込）" required>
-                <span class="order-card__inner">
-                  <span class="order-card__kg">10kg</span>
-                  <span class="order-card__price">7,700円<span class="order-card__tax">税込</span></span>
-                </span>
-              </label>
-              <label class="order-card">
-                <input type="radio" name="order" value="30kg（23,100円・税込）">
-                <span class="order-card__inner">
-                  <span class="order-card__kg">30kg</span>
-                  <span class="order-card__price">23,100円<span class="order-card__tax">税込</span></span>
-                </span>
-              </label>
-              <label class="order-card">
-                <input type="radio" name="order" value="60kg（46,200円・税込）">
-                <span class="order-card__inner">
-                  <span class="order-card__kg">60kg</span>
-                  <span class="order-card__price">46,200円<span class="order-card__tax">税込</span></span>
-                </span>
-              </label>
-              <label class="order-card">
-                <input type="radio" name="order" value="90kg（69,300円・税込）">
-                <span class="order-card__inner">
-                  <span class="order-card__kg">90kg</span>
-                  <span class="order-card__price">69,300円<span class="order-card__tax">税込</span></span>
-                </span>
-              </label>
-              <label class="order-card">
-                <input type="radio" name="order" value="120kg（92,400円・税込）">
-                <span class="order-card__inner">
-                  <span class="order-card__kg">120kg</span>
-                  <span class="order-card__price">92,400円<span class="order-card__tax">税込</span></span>
-                </span>
-              </label>
-              <label class="order-card">
-                <input type="radio" name="order" value="その他">
-                <span class="order-card__inner">
-                  <span class="order-card__kg">その他</span>
-                  <span class="order-card__price">—<span class="order-card__tax">備考欄に数量</span></span>
-                </span>
-              </label>
-            </div>
-            <p class="form-order-note">※「その他」を選ばれた場合は、備考欄にご希望の数量をご記入ください。</p>
-          </fieldset>
-
-          <div class="form-field">
-            <label class="form-label" for="rf-notes">備考・ご質問<span class="badge-opt">任意</span></label>
-            <textarea class="form-textarea" id="rf-notes" name="message" rows="4" placeholder="ご質問やご要望があればご記入ください" data-placeholder-default="ご質問やご要望があればご記入ください" data-placeholder-other="ご希望の数量をご記入ください"></textarea>
-          </div>
-
-          <div class="reserve-form__submit-wrap">
-            <button type="submit" class="btn btn--gold reserve-form__submit" id="reserve-form-submit">送信する</button>
-          </div>
-        </form>
-          </div>
-
-          <div class="reserve-thanks" id="reserve-thanks" hidden role="status" aria-live="polite" aria-labelledby="reserve-thanks-title">
-            <div class="reserve-thanks__inner">
-              <svg class="reserve-thanks__icon" width="56" height="52" viewBox="0 0 56 52" aria-hidden="true" focusable="false">
-                <path fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" d="M28 48V10"/>
-                <path fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" d="M28 18c-8 2-14 8-16 16M28 22c8 1 15 7 17 15M28 26c-10 4-16 12-17 21M28 30c10 3 17 11 18 20"/>
-                <circle fill="currentColor" cx="14" cy="34" r="2" opacity="0.85"/>
-                <circle fill="currentColor" cx="42" cy="36" r="2" opacity="0.85"/>
-                <circle fill="currentColor" cx="22" cy="24" r="1.6" opacity="0.75"/>
-                <circle fill="currentColor" cx="36" cy="26" r="1.6" opacity="0.75"/>
-                <circle fill="currentColor" cx="18" cy="16" r="1.4" opacity="0.65"/>
-                <circle fill="currentColor" cx="38" cy="18" r="1.4" opacity="0.65"/>
-              </svg>
-              <h3 class="reserve-thanks__title" id="reserve-thanks-title" tabindex="-1">ご予約ありがとうございます。</h3>
-              <div class="reserve-thanks__body">
-                <p>阿木川源流米へのご予約を承りました。</p>
-                <p>秋の収穫まで、田んぼの様子をSNSで随時お届けします。</p>
-                <p>10月中旬、新米をお届けできる日を楽しみにお待ちください。</p>
-                <p>ご不明な点はメールにてお気軽にどうぞ。</p>
-              </div>
-              <a class="btn btn--gold reserve-thanks__btn" href="#" id="reserve-thanks-top">トップページに戻る</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sns-block section--white" aria-labelledby="sns-title">
-      <div class="container">
-        <p class="section__eyebrow">最新情報</p>
-        <h2 id="sns-title" class="section__title">SNSでフォローする</h2>
-        <p>栽培の様子や入荷・販売のお知らせを発信しています（アカウント開設後にURLを差し替えてください）。</p>
-        <div class="sns-links">
-          <a href="#" aria-label="Instagram（準備中）">Instagram</a>
-          <a href="#" aria-label="X（準備中）">X（旧Twitter）</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p class="footer-copy">© 阿木川源流米｜岐阜県恵那市阿木産コシヒカリ（玄米）予約販売</p>
-    </div>
-  </footer>
-  <script>
-    (function () {
-      var form = document.getElementById("reserve-form-el");
-      var notes = document.getElementById("rf-notes");
-      if (!form || !notes) return;
-      var phDefault = notes.getAttribute("data-placeholder-default") || "ご質問やご要望があればご記入ください";
-      var phOther = notes.getAttribute("data-placeholder-other") || "ご希望の数量をご記入ください";
-      function syncNotesPlaceholder() {
-        var other = form.querySelector('input[name="order"][value="その他"]');
-        notes.placeholder = other && other.checked ? phOther : phDefault;
-      }
-      form.querySelectorAll('input[name="order"]').forEach(function (radio) {
-        radio.addEventListener("change", syncNotesPlaceholder);
-      });
-      syncNotesPlaceholder();
-
-      var step = document.getElementById("reserve-form-step");
-      var thanks = document.getElementById("reserve-thanks");
-      var submitBtn = document.getElementById("reserve-form-submit");
-      var topBtn = document.getElementById("reserve-thanks-top");
-      var reserveSection = document.getElementById("reserve-form");
-
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
-        if (!submitBtn || !step || !thanks) return;
-
-        submitBtn.disabled = true;
-        var label = submitBtn.textContent;
-        submitBtn.textContent = "送信中…";
-
-        fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          headers: { Accept: "application/json" },
-        })
-          .then(function (res) {
-            if (res.ok) {
-              step.hidden = true;
-              thanks.hidden = false;
-              if (reserveSection) {
-                reserveSection.scrollIntoView({ behavior: "smooth", block: "start" });
-              }
-              var titleEl = document.getElementById("reserve-thanks-title");
-              if (titleEl) titleEl.focus({ preventScroll: true });
-              return;
-            }
-            return res.json().then(
-              function (data) {
-                var msg = "送信に失敗しました。入力内容をご確認のうえ、再度お試しください。";
-                if (data && typeof data.error === "string") msg = data.error;
-                window.alert(msg);
-              },
-              function () {
-                window.alert("送信に失敗しました。しばらくしてから再度お試しください。");
-              }
-            );
-          })
-          .catch(function () {
-            window.alert("送信に失敗しました。通信環境をご確認のうえ、再度お試しください。");
-          })
-          .finally(function () {
-            submitBtn.disabled = false;
-            submitBtn.textContent = label;
-          });
-      });
-
-      if (topBtn) {
-        topBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          var brand = document.querySelector(".site-header__brand");
-          if (brand) brand.focus({ preventScroll: true });
-        });
-      }
-    })();
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
