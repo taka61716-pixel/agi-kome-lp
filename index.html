@@ -3,76 +3,445 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>阿木川源流米 | 予約受付LP</title>
+    <title>あぎひかり | 予約受付LP</title>
     <meta
       name="description"
-      content="阿木川源流域からお届けするお米の予約受付LP。5kg・10kgの予約相談を受け付けています。"
+      content="岐阜県中津川市阿木で育てたコシヒカリ100%の玄米　770円/kg（税込）、10kg単位で収穫前予約を受け付けています"
     />
-    <meta property="og:title" content="阿木川源流米 | 予約受付LP" />
+    <meta property="og:title" content="あぎひかり | 予約受付LP" />
     <meta
       property="og:description"
-      content="阿木川源流域からお届けするお米。家庭用にも贈り物にも。"
+      content="阿木川上流域の水と山あいの寒暖差で育つコシヒカリ玄米　価格・数量・送料を確認してから予約できます"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/rice-hero.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <meta property="og:image" content="https://taka61716-pixel.github.io/agi-kome-lp/assets/akigawa-field-hero-premium.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="あぎひかり | 予約受付LP" />
+    <meta
+      name="twitter:description"
+      content="阿木川上流域の水と山あいの寒暖差で育つコシヒカリ玄米　価格・数量・送料を確認してから予約できます"
+    />
+    <meta name="twitter:image" content="https://taka61716-pixel.github.io/agi-kome-lp/assets/akigawa-field-hero-premium.jpg" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BE%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css?v=rice-20260801-price770" />
+
+    <!-- 構造化データ：商品情報 -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "あぎひかり 玄米（コシヒカリ）",
+        "image": "assets/akigawa-field-hero-premium.jpg",
+        "description": "岐阜・阿木川上流域の最上流の水を掛け流しで使って育てた、100%コシヒカリの玄米　早期予約受付中",
+        "brand": { "@type": "Brand", "name": "阿木ファーム" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "玄米10kg",
+            "price": "7700",
+            "priceCurrency": "JPY",
+            "availability": "https://schema.org/PreOrder",
+            "priceValidUntil": "2026-08-31",
+            "url": "#products"
+          },
+          {
+            "@type": "Offer",
+            "name": "玄米30kg",
+            "price": "23100",
+            "priceCurrency": "JPY",
+            "availability": "https://schema.org/PreOrder",
+            "priceValidUntil": "2026-08-31",
+            "url": "#products"
+          },
+          {
+            "@type": "Offer",
+            "name": "玄米120kg",
+            "price": "92400",
+            "priceCurrency": "JPY",
+            "availability": "https://schema.org/PreOrder",
+            "priceValidUntil": "2026-08-31",
+            "url": "#products"
+          }
+        ]
+      }
+    </script>
+
+    <!-- 構造化データ：よくある質問（Google検索でのFAQ表示向上のため） -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "表示価格は税込ですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "はい　770円/kgの税込表示です　送料目安は10kgごとに1,000円です　入金前に送料込みの合計金額をご案内します" }
+          },
+          {
+            "@type": "Question",
+            "name": "収穫前予約をする意味は何ですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "収穫後の袋詰め、保管、発送準備をしやすくするため、事前に希望数量を伺っています　送信だけで購入確定にはなりません" }
+          },
+          {
+            "@type": "Question",
+            "name": "収穫時期はいつですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "9月中旬から下旬ごろを予定しています　天候や生育状況により前後する場合があります" }
+          },
+          {
+            "@type": "Question",
+            "name": "発送時期はいつですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "10月中旬から下旬ごろを予定しています　収穫後、準備が整い次第順番にご案内します" }
+          },
+          {
+            "@type": "Question",
+            "name": "支払い方法は何がありますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "お支払いは銀行振込のみです　振込先は予約内容の確認後にご案内します" }
+          },
+          {
+            "@type": "Question",
+            "name": "支払い時期はいつですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "事前予約後、8月末までのお支払いをお願いします　お支払い確認後、予約確定となります" }
+          },
+          {
+            "@type": "Question",
+            "name": "送料はかかりますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "送料目安は10kgごとに1,000円です　北海道、沖縄、離島などは配送条件を確認して、入金前に合計金額をお知らせします" }
+          },
+          {
+            "@type": "Question",
+            "name": "何kgから予約できますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "玄米10kgから予約できます　10kg単位で、30kg・120kgなど必要な量をご相談ください" }
+          },
+          {
+            "@type": "Question",
+            "name": "白米ではなく玄米で届きますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "はい　玄米でお渡しします　ご家庭やお近くの精米所で、お好みの精米具合に調整できます" }
+          },
+          {
+            "@type": "Question",
+            "name": "予約後のキャンセルはできますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "入金前は見送り可能です　入金後は数量を確保するため原則としてキャンセル不可です　事情がある場合は早めにご相談ください" }
+          },
+          {
+            "@type": "Question",
+            "name": "届いた商品に不備があった場合はどうなりますか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "破損、誤配送、内容違いがある場合は、到着後7日以内に写真を添えてご連絡ください　内容を確認して個別に対応します" }
+          },
+          {
+            "@type": "Question",
+            "name": "玄米はどのように保管すればいいですか？",
+            "acceptedAnswer": { "@type": "Answer", "text": "直射日光、高温多湿を避け、風通しのよい涼しい場所で保管してください　長期保管の場合は小分けにして低温での保管がおすすめです" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="site-header" aria-label="サイトヘッダー">
-      <a class="brand" href="#top" aria-label="阿木川源流米 トップへ">
+      <a class="brand" href="#top" aria-label="あぎひかり トップへ">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span>阿木川源流米</span>
+        <span>あぎひかり</span>
       </a>
       <nav class="site-nav" aria-label="ページ内ナビゲーション">
-        <a href="#quality">おいしさ</a>
+        <a href="#message">米づくり</a>
+        <a href="#support">予約について</a>
+        <a href="#quality">育つ場所</a>
         <a href="#products">商品</a>
-        <a href="#faq">FAQ</a>
+        <a href="#delivery">お届け</a>
+        <a href="#terms">表示</a>
+        <a href="#order">予約相談</a>
       </nav>
-      <a class="header-cta" href="#order">注文する</a>
+      <a class="header-cta" href="#order">予約相談</a>
     </header>
 
     <main id="top">
-      <section class="hero" aria-label="阿木川源流米の紹介">
-        <img class="hero-image" src="assets/rice-hero.png" alt="田んぼを背景にした米袋、炊きたてご飯、稲穂" />
+      <section class="hero" aria-label="あぎひかりの紹介">
+        <picture class="hero-media">
+          <source srcset="assets/akigawa-field-hero-premium.webp" type="image/webp" />
+          <img
+            class="hero-image"
+            src="assets/akigawa-field-hero-premium.jpg"
+            alt="阿木川上流域の山あいに広がる黄金色の田んぼ"
+          />
+        </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="eyebrow">予約受付中・産地直送</p>
-          <h1>阿木川源流米</h1>
-          <p class="lead">
-            つや、甘み、ほどよい粘り。炊きたてはもちろん、
-            お弁当やおにぎりでもおいしさが続く、毎日のためのお米です。
+          <p class="eyebrow">2026年秋収穫分 予約受付</p>
+          <h1>あぎひかり</h1>
+          <p class="lead copy-lines">
+            <span>岐阜県中津川市阿木の山あいで育てた</span>
+            <span>コシヒカリ100%の玄米</span>
           </p>
+          <p class="hero-note copy-lines">
+            <span>阿木川上流域の水、山あいの寒暖差</span>
+            <span>日当たりのよい田んぼで育てています</span>
+          </p>
+          <p class="deadline-banner" id="deadlineBannerHero" role="status"></p>
           <div class="hero-actions">
-            <a class="primary-button" href="#order">今すぐ注文</a>
-            <a class="secondary-button" href="#quality">特徴を見る</a>
+            <a class="primary-button" href="#order">予約相談する</a>
+            <a class="secondary-button" href="#message">米づくりを見る</a>
           </div>
           <dl class="hero-stats" aria-label="商品概要">
             <div>
-              <dt>内容量</dt>
-              <dd>5kg / 10kg</dd>
+              <dt>商品</dt>
+              <dd>玄米 10kg〜</dd>
             </div>
             <div>
               <dt>価格</dt>
-              <dd>予約時に案内</dd>
+              <dd>770円/kg 税込</dd>
             </div>
             <div>
-              <dt>発送</dt>
-              <dd>精米後3営業日以内</dd>
+              <dt>単位</dt>
+              <dd>10kg単位</dd>
             </div>
           </dl>
+          <div class="hero-trust" aria-label="予約条件">
+            <span>送料目安 10kg毎1,000円</span>
+            <span>入金前は未確定</span>
+            <span>収穫後に順次発送</span>
+          </div>
+          <p class="hero-promise copy-lines">
+            <span>フォーム送信後、送料込みの合計目安をご確認いただけます</span>
+            <span>銀行振込の確認後に予約確定です</span>
+          </p>
         </div>
       </section>
 
       <section class="intro-band" aria-label="販売メッセージ">
         <div class="section-inner intro-grid">
-          <p class="intro-copy">
-            家族の朝ごはん、仕事の日のお弁当、週末の炊き込みご飯。
-            どんな食卓にもなじむ、派手すぎず確かなおいしさを目指しました。
+          <p class="intro-copy copy-lines">
+            <span>玄米10kgから予約可能</span>
+            <span>配送先と数量を確認後、送料込みの合計金額をご案内します</span>
           </p>
           <div class="trust-row" aria-label="品質ポイント">
-            <span>小分け配送対応</span>
-            <span>熨斗相談可</span>
-            <span>定期便受付中</span>
+            <span>100%コシヒカリ</span>
+            <span>770円/kg 税込</span>
+            <span>玄米10kg単位</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="decision-strip" aria-label="予約前に確認できること">
+        <div class="section-inner decision-grid">
+          <div>
+            <span>01</span>
+            <strong>価格が明確</strong>
+            <p>770円/kg 税込、10kg単位で数量を選べます</p>
+          </div>
+          <div>
+            <span>02</span>
+            <strong>送料は事前案内</strong>
+            <p>10kgごとに1,000円を目安に、支払い前に合計金額をお知らせします</p>
+          </div>
+          <div>
+            <span>03</span>
+            <strong>予約確定は入金後</strong>
+            <p>フォーム送信後、合計金額をご確認いただいてから確定します</p>
+          </div>
+          <div>
+            <span>04</span>
+            <strong>玄米でお届け</strong>
+            <p>必要な分だけ精米でき、保管や使い分けがしやすい形です</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section proof-section" aria-label="購入前にわかること">
+        <div class="section-inner proof-grid">
+          <div class="proof-copy">
+            <p class="eyebrow">予約前の確認</p>
+            <h2>予約前に確認できること</h2>
+            <p class="copy-lines">
+              <span>価格、数量、支払い時期、発送時期を事前に整理</span>
+              <span>送料は配送先と数量を確認してから個別にご案内します</span>
+            </p>
+          </div>
+          <div class="proof-list" aria-label="予約条件">
+            <div>
+              <span>価格</span>
+              <strong>770円/kg</strong>
+              <small>税込・送料別</small>
+            </div>
+            <div>
+              <span>最小予約</span>
+              <strong>10kg</strong>
+              <small>10kg単位で調整可</small>
+            </div>
+            <div>
+              <span>作り手</span>
+              <strong>阿木ファーム</strong>
+              <small>阿木で育てています</small>
+            </div>
+            <div>
+              <span>品種</span>
+              <strong>コシヒカリ</strong>
+              <small>玄米でお届け</small>
+            </div>
+            <div>
+              <span>発送目安</span>
+              <strong>10月中旬〜</strong>
+              <small>収穫後に順次案内</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="support" class="section support-section" aria-label="収穫前予約について">
+        <div class="section-inner support-layout">
+          <div class="support-copy">
+            <p class="eyebrow">予約方式</p>
+            <h2>収穫前に数量を確認します</h2>
+            <p class="copy-lines">
+              <span>収穫後は乾燥、調整、袋詰め、保管、発送準備へ進みます</span>
+              <span>事前に希望数量を伺い、準備が整い次第順番にご案内します</span>
+            </p>
+            <p class="copy-lines">
+              <span>フォーム送信だけで購入確定にはなりません</span>
+              <span>送料込みの金額をご確認いただき、銀行振込の確認後に予約確定となります</span>
+            </p>
+          </div>
+          <div class="support-grid">
+            <article>
+              <span>01</span>
+              <h3>希望数量を確認</h3>
+              <p>10kg単位で希望数量をお知らせください</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>合計金額をご案内</h3>
+              <p>配送先と数量を確認し、送料込みの金額をお伝えします</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>入金後に確定</h3>
+              <p>内容に納得いただいた後、銀行振込の確認をもって予約確定です</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="message" class="section family-section">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">米づくり</p>
+            <h2>産地が見えるお米です</h2>
+            <p class="copy-lines">
+              <span>毎日のごはんだからこそ、産地や作り方が分かるものを選びたい方へ</span>
+              <span>阿木ファームが育てた玄米を、収穫後に順次お届けします</span>
+            </p>
+          </div>
+          <div class="family-grid">
+            <article class="family-item">
+              <h3>田んぼを見ながら育てる</h3>
+              <p>稲の育ち、水の入り方、田んぼの状態を見ながら育てています</p>
+            </article>
+            <article class="family-item">
+              <h3>玄米で、食卓に合わせる</h3>
+              <p>白米、分づき米、玄米食まで、暮らしに合わせて使い分けできます</p>
+            </article>
+            <article class="family-item">
+              <h3>数量を確認してから確保</h3>
+              <p>必要な量を確認しながら、収穫後に順番にご案内します</p>
+            </article>
+          </div>
+          <div class="family-note">
+            <strong>こんな方に向いています</strong>
+            <p>産地が分かるお米を選びたい方、玄米で保管して必要な分だけ精米したい方に向いています</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="story" class="section story-section">
+        <div class="section-inner story-layout">
+          <div class="section-heading">
+            <p class="eyebrow">栽培について</p>
+            <h2>米づくりについて</h2>
+          </div>
+          <div class="story-copy">
+            <p>
+              阿木川上流域は、山あいの水と昼夜の寒暖差がある地域です
+              日当たりのよい田んぼで、コシヒカリを玄米としてお届けできるよう育てています
+            </p>
+            <p>
+              できる限り農薬を減らし、稲の間隔を広めに取るなど
+              風通しと日当たりを見ながら育てています
+              収穫量だけを追うのではなく、毎日のごはんとして食べやすいお米を目指しています
+            </p>
+            <p>
+              玄米でお届けするため、ご家庭やお近くの精米所で白米・分づき米・玄米食などに調整できます
+              食べる分だけ精米したい方にも使いやすい形です
+            </p>
+            <p>
+              収穫量には限りがありますので、必要な量がある方は早めにご相談ください
+              送料を含めた金額をご案内してから予約確定となります
+            </p>
+            <ul class="story-points" aria-label="こだわり">
+              <li>阿木ファームの目が届く範囲で育てる米づくり</li>
+              <li>阿木川上流域の水を使った米づくり</li>
+              <li>山あいの寒暖差がある田んぼ</li>
+              <li>できる限り農薬を減らして栽培</li>
+              <li>稲の間隔を広く取り、風通しと日当たりを確保</li>
+              <li>玄米でお届けし、必要な分だけ精米できる</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="photos" class="section photo-section" aria-label="阿木川上流域の風景">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">地域の写真</p>
+            <h2>写真で見る、育つ場所</h2>
+            <p>
+              岐阜県中津川市阿木
+              水、田植え、実り、田んぼのまわりの様子を掲載しています
+            </p>
+          </div>
+          <div class="photo-grid">
+            <article class="photo-card">
+              <picture>
+                <source srcset="assets/photo-water-source-vivid.webp" type="image/webp" />
+                <img src="assets/photo-water-source-vivid.jpg" alt="阿木川上流域の澄んだ川と岩場" loading="lazy" />
+              </picture>
+              <div>
+                <p class="photo-label">Water</p>
+                <h3>山から流れる、澄んだ水</h3>
+                <p>阿木川上流域の水を使い、稲の状態を見ながら水管理をしています</p>
+              </div>
+            </article>
+            <article class="photo-card">
+              <picture>
+                <source srcset="assets/photo-local-shrine-vivid.webp" type="image/webp" />
+                <img src="assets/photo-local-shrine-vivid.jpg" alt="森に囲まれた地域の神社と鳥居" loading="lazy" />
+              </picture>
+              <div>
+                <p class="photo-label">Local</p>
+                <h3>阿木川上流域の地域風景</h3>
+                <p>田んぼの近くにある地域の風景です　阿木という土地の雰囲気を伝えるために掲載しています</p>
+              </div>
+            </article>
+            <article class="photo-card">
+              <picture>
+                <source srcset="assets/photo-rice-seedlings-vivid.webp" type="image/webp" />
+                <img src="assets/photo-rice-seedlings-vivid.jpg" alt="苗が規則正しく並ぶ水田" loading="lazy" />
+              </picture>
+              <div>
+                <p class="photo-label">Growing</p>
+                <h3>田植えから、目をかけて育てる</h3>
+                <p>苗が並ぶ田んぼは、米づくりの始まり　広めの間隔で、風通しと日当たりを大切にします</p>
+              </div>
+            </article>
+            <article class="photo-card">
+              <picture>
+                <source srcset="assets/photo-harvest-field-vivid.webp" type="image/webp" />
+                <img src="assets/photo-harvest-field-vivid.jpg" alt="山あいに広がる収穫前の稲穂" loading="lazy" />
+              </picture>
+              <div>
+                <p class="photo-label">Harvest</p>
+                <h3>黄金色に実る、収穫前の田んぼ</h3>
+                <p>収穫前の田んぼの様子です　9月中旬から下旬ごろの収穫を予定しています</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -80,8 +449,13 @@
       <section id="quality" class="section quality-section">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">Taste & Quality</p>
-            <h2>毎日食べても、また食べたくなる。</h2>
+            <p class="eyebrow">育つ場所</p>
+            <h2>おいしさは、田んぼから</h2>
+            <p class="copy-lines">
+              <span>阿木川上流域の水、山あいの寒暖差</span>
+              <span>日当たりと土のバランスを見ながら育てています</span>
+              <span>毎日のごはんとして食べやすいコシヒカリを目指しています</span>
+            </p>
           </div>
           <div class="quality-grid">
             <article class="quality-item">
@@ -90,8 +464,8 @@
                   <path d="M12 3c4.2 3.1 6.3 6.2 6.3 9.4A6.3 6.3 0 1 1 5.7 12.4C5.7 9.2 7.8 6.1 12 3Z" />
                 </svg>
               </span>
-              <h3>ふっくらした粒感</h3>
-              <p>炊き上がりのつやと粒立ちがよく、主菜の味を引き立てます。</p>
+              <h3>阿木川最上流の水</h3>
+              <p>水源に近い田んぼで、阿木川の最上流の水を掛け流しで使っています　米づくりの一番の土台です</p>
             </article>
             <article class="quality-item">
               <span class="quality-icon" aria-hidden="true">
@@ -100,8 +474,8 @@
                   <path d="M9.5 12a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0Z" />
                 </svg>
               </span>
-              <h3>冷めても甘い</h3>
-              <p>おにぎりやお弁当でも甘みを感じやすい、日常使いに強い味わいです。</p>
+              <h3>中間山地の寒暖差</h3>
+              <p>昼はしっかり日を浴び、夜は気温が下がる環境　粒に甘みを蓄えやすい山あいの田んぼです</p>
             </article>
             <article class="quality-item">
               <span class="quality-icon" aria-hidden="true">
@@ -110,8 +484,30 @@
                   <path d="M7 17c2.5-3.2 5.2-5.7 8.3-7.8" />
                 </svg>
               </span>
-              <h3>必要な分だけ精米</h3>
-              <p>注文に合わせて精米し、香りと鮮度を保った状態でお届けします。</p>
+              <h3>水はけと保水性のよい土</h3>
+              <p>水はけと保水性のバランスが取れた土地で、稲の根が健やかに育つよう管理しています</p>
+            </article>
+          </div>
+          <div class="process-strip" aria-label="米づくりの工程">
+            <article>
+              <span>01</span>
+              <h3>苗づくり</h3>
+              <p>田植え前から苗の状態を見て、無理なく根を張れる準備をします</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>水管理</h3>
+              <p>阿木川上流の水を生かし、稲の状態に合わせて田んぼを見回ります</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>収穫</h3>
+              <p>実りを見ながら、9月中旬から下旬ごろの収穫を予定しています</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>玄米保管</h3>
+              <p>玄米のままお届けすることで、家庭で必要な分だけ精米できます</p>
             </article>
           </div>
         </div>
@@ -120,26 +516,58 @@
       <section class="taste-band" aria-label="味のバランス">
         <div class="section-inner taste-layout">
           <div>
-            <p class="eyebrow">Rice Profile</p>
-            <h2>ほどよい粘りと、すっきりした後味。</h2>
-            <p>
-              濃い味のおかずにも、シンプルな卵かけご飯にも合わせやすいバランスです。
-              炊飯器でも土鍋でも扱いやすく、ご家庭の定番米として使えます。
+            <p class="eyebrow">味わい</p>
+            <h2>毎日食べたくなる、素直なおいしさ</h2>
+            <p class="copy-lines">
+              <span>最上流の水、昼夜の寒暖差、日当たりのよい田んぼ</span>
+              <span>コシヒカリらしい甘みと粘りがあり</span>
+              <span>普段の食卓に使いやすいお米です</span>
             </p>
           </div>
-          <div class="taste-meter" aria-label="味の指標">
-            <div class="meter-row">
-              <span>甘み</span>
-              <meter value="86" min="0" max="100">86%</meter>
-            </div>
-            <div class="meter-row">
-              <span>粘り</span>
-              <meter value="74" min="0" max="100">74%</meter>
-            </div>
-            <div class="meter-row">
-              <span>粒感</span>
-              <meter value="82" min="0" max="100">82%</meter>
-            </div>
+          <div class="taste-card-grid" aria-label="味わいの特徴">
+            <article>
+              <span>炊きたて</span>
+              <h3>ふっくら炊ける</h3>
+              <p>ふっくら炊いた時に、コシヒカリらしい甘みと粘りを感じやすいお米です</p>
+            </article>
+            <article>
+              <span>お弁当</span>
+              <h3>冷めても食べやすい</h3>
+              <p>おにぎりやお弁当にも使いやすく、毎日の食卓で出番を作りやすい味わいです</p>
+            </article>
+            <article>
+              <span>玄米保存</span>
+              <h3>食べる分だけ精米</h3>
+              <p>玄米で保管し、白米・分づき米・玄米食まで家族の好みに合わせられます</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cook-section" aria-label="炊き方と食べ方">
+        <div class="section-inner cook-layout">
+          <div class="section-heading">
+            <p class="eyebrow">食べ方</p>
+            <h2>いつもの食卓で、おいしく</h2>
+            <p class="copy-lines">
+              <span>特別な道具がなくても、家庭の炊飯器で楽しめるお米を目指しています</span>
+              <span>玄米で受け取った後は、白米・分づき米・玄米食まで</span>
+              <span>食べ方に合わせて調整できます</span>
+            </p>
+          </div>
+          <div class="cook-grid">
+            <article>
+              <h3>白米に精米して、毎日のごはんに</h3>
+              <p>食べる分だけ精米すれば、香りと甘みを感じやすい状態で炊けます　お弁当やおにぎりにも使いやすい食べ方です</p>
+            </article>
+            <article>
+              <h3>玄米で食べるなら、浸水を長めに</h3>
+              <p>玄米食にする場合は、炊飯器の玄米モードや長めの浸水がおすすめです　噛むほど甘みを感じやすくなります</p>
+            </article>
+            <article>
+              <h3>最初の水を少しだけ丁寧に</h3>
+              <p>研ぎ始めの水はお米が吸いやすいので、可能なら浄水を使うと炊き上がりの印象が整いやすくなります</p>
+            </article>
           </div>
         </div>
       </section>
@@ -147,31 +575,239 @@
       <section id="products" class="section product-section">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">Lineup</p>
-            <h2>ご家庭にも、まとめ買いにも。</h2>
+            <p class="eyebrow">商品</p>
+            <h2><span class="nowrap">10kg単位</span>で早期予約</h2>
+            <p class="copy-lines">
+              <span>10kgから予約できます</span>
+              <span>30kg、60kg、120kgなど、ご家庭の消費量に合わせてお選びください</span>
+            </p>
           </div>
           <div class="product-grid">
-            <article class="product-card" data-product="白米 5kg">
-              <p class="tag">まずはお試し</p>
-              <h3>白米 5kg</h3>
-              <p class="product-desc">少人数のご家庭や初回購入に。</p>
-              <p class="price note-price">価格は予約時に案内</p>
+            <article class="product-card" data-kg="10">
+              <p class="tag">まず試す</p>
+              <h3>玄米 10kg</h3>
+              <p class="product-desc">少量から試したい方、保管場所を抑えたい方に</p>
+              <p class="price note-price">7,700円 <small>税込</small></p>
+              <p class="shipping-line">送料目安 1,000円</p>
+              <p class="total-line">合計目安 8,700円</p>
+              <ul class="product-points">
+                <li>初回の予約に向いています</li>
+                <li>保管場所を取りすぎない</li>
+              </ul>
               <button class="select-button" type="button">選択</button>
             </article>
-            <article class="product-card featured" data-product="白米 10kg">
-              <p class="tag">人気</p>
-              <h3>白米 10kg</h3>
-              <p class="product-desc">毎日のごはんをしっかり確保。</p>
-              <p class="price note-price">価格は予約時に案内</p>
+            <article class="product-card featured" data-kg="30">
+              <p class="tag">おすすめ</p>
+              <h3>玄米 30kg</h3>
+              <p class="product-desc">ご家庭用として選びやすい数量です</p>
+              <p class="price note-price">23,100円 <small>税込</small></p>
+              <p class="shipping-line">送料目安 3,000円</p>
+              <p class="total-line">合計目安 26,100円</p>
+              <ul class="product-points">
+                <li>家庭用の基準量</li>
+                <li>親戚や友人と分けやすい</li>
+              </ul>
               <button class="select-button" type="button">選択</button>
             </article>
-            <article class="product-card" data-product="白米 10kg 定期便">
-              <p class="tag">定期便</p>
-              <h3>白米 10kg 定期</h3>
-              <p class="product-desc">月1回のお届けで買い忘れを防止。</p>
-              <p class="price note-price">価格は予約時に案内</p>
+            <article class="product-card" data-kg="120">
+              <p class="tag">まとめ予約</p>
+              <h3>玄米 120kg</h3>
+              <p class="product-desc">年間分の確保や、複数家庭での共同予約に</p>
+              <p class="price note-price">92,400円 <small>税込</small></p>
+              <p class="shipping-line">送料目安 12,000円</p>
+              <p class="total-line">合計目安 104,400円</p>
+              <ul class="product-points">
+                <li>食べる量が多いご家庭に</li>
+                <li>複数家庭での共同予約に</li>
+              </ul>
               <button class="select-button" type="button">選択</button>
             </article>
+          </div>
+          <div class="sales-status" aria-label="販売状況">
+            <div>
+              <span>販売予定数量</span>
+              <strong>1,500kg</strong>
+            </div>
+            <div>
+              <span>予約済み</span>
+              <strong>0kg</strong>
+            </div>
+            <div>
+              <span>残り数量</span>
+              <strong>1,500kg</strong>
+            </div>
+          </div>
+          <p class="product-note">表示価格は税込・送料別です　送料目安は10kgごとに1,000円です　配送条件を確認し、入金前に送料込みの合計金額をご案内します</p>
+        </div>
+      </section>
+
+      <section id="delivery" class="section delivery-section">
+        <div class="section-inner delivery-layout">
+          <div>
+            <p class="eyebrow">お届け</p>
+            <h2>量もお届けも、相談できます</h2>
+            <p class="copy-lines">
+              <span>玄米はまとめて確保しやすい一方で、保管場所や分け方に悩むことがあります</span>
+              <span>ご家庭の食べるペース、保管場所、親戚との分け方まで相談しながら決められます</span>
+            </p>
+          </div>
+          <div class="delivery-grid">
+            <article>
+              <span>01</span>
+              <h3>10kg単位で調整</h3>
+              <p>10kg、30kg、60kg、120kgなど、必要な量に合わせて予約できます</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>小分け相談</h3>
+              <p>ご家族や親戚で分ける場合も、受け取りや分配方法を事前に相談できます</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>玄米で鮮度を保つ</h3>
+              <p>玄米で保管し、必要な分だけ精米　白米で長く置くより風味を保ちやすくなります</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>次回案内も可能</h3>
+              <p>気に入った方には、次の予約時期や収穫案内をお知らせできる形に整えていきます</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="reserve" class="section reserve-section">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="eyebrow">予約の流れ</p>
+            <h2>予約からお届けまで</h2>
+            <p class="copy-lines">
+              <span>送信した瞬間に購入確定ではありません</span>
+              <span>合計金額を確認してから、予約するかどうかを決められます</span>
+            </p>
+          </div>
+          <div class="reserve-flow" aria-label="予約の流れ">
+            <article>
+              <span>01</span>
+              <h3>数量を選ぶ</h3>
+              <p>10kg、30kg、120kg、または10kg単位の希望量を選びます</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>送料と受け取りを確認</h3>
+              <p>10kgごとに1,000円を送料目安として、送料込みの合計金額をご案内します</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>8月末までにお支払い</h3>
+              <p>内容に納得いただいた後、銀行振込の確認をもって予約確定となります</p>
+            </article>
+            <article>
+              <span>04</span>
+              <h3>収穫後にお届け</h3>
+              <p>9月中旬から下旬ごろに収穫し、10月中旬以降に順次お届け予定です</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="terms" class="section terms-section" aria-label="取引条件と商品表示">
+        <div class="section-inner terms-layout">
+          <div class="section-heading terms-heading">
+            <p class="eyebrow">購入前の確認</p>
+            <h2>価格、条件、表示を明確にしています</h2>
+            <p class="copy-lines">
+              <span>はじめての方でも判断しやすいように、入金前に確認できる項目をまとめています</span>
+              <span>送料込みの合計金額をご案内した後で、予約するかどうかを決められます</span>
+            </p>
+          </div>
+          <div class="terms-grid">
+            <article class="terms-card">
+              <span>価格</span>
+              <h3>770円/kg 税込</h3>
+              <p class="copy-lines">
+                <span>表示価格は税込・送料別です</span>
+                <span>10kg単位で必要な量を選べます</span>
+              </p>
+            </article>
+            <article class="terms-card">
+              <span>送料</span>
+              <h3>10kg毎1,000円目安</h3>
+              <p class="copy-lines">
+                <span>配送条件を確認して正式金額をご案内します</span>
+                <span>北海道、沖縄、離島は別途確認します</span>
+              </p>
+            </article>
+            <article class="terms-card">
+              <span>確定条件</span>
+              <h3>入金確認後に予約確定</h3>
+              <p class="copy-lines">
+                <span>フォーム送信だけでは確定しません</span>
+                <span>合計金額を確認してから判断できます</span>
+              </p>
+            </article>
+            <article class="terms-card">
+              <span>キャンセル</span>
+              <h3>入金前は見送り可能</h3>
+              <p class="copy-lines">
+                <span>入金後は数量を確保するため原則キャンセル不可です</span>
+                <span>事情がある場合は早めにご相談ください</span>
+              </p>
+            </article>
+            <article class="terms-card">
+              <span>不備対応</span>
+              <h3>到着後7日以内に確認</h3>
+              <p class="copy-lines">
+                <span>破損、誤配送、内容違いがある場合は</span>
+                <span>写真を添えてご連絡ください</span>
+              </p>
+            </article>
+          </div>
+
+          <div class="product-display">
+            <div>
+              <p class="eyebrow">商品表示</p>
+              <h3>玄米としてお届けします</h3>
+              <p class="copy-lines">
+                <span>ラベルに記載する正式情報は、収穫後の調整時期と販売者情報を確認して最終表示します</span>
+                <span>産地、品種、産年は証明内容に基づいて表示します</span>
+              </p>
+            </div>
+            <dl class="display-list">
+              <div>
+                <dt>名称</dt>
+                <dd>玄米</dd>
+              </div>
+              <div>
+                <dt>原料玄米</dt>
+                <dd>単一原料米　岐阜県中津川市阿木　コシヒカリ　2026年産予定</dd>
+              </div>
+              <div>
+                <dt>内容量</dt>
+                <dd>10kg単位</dd>
+              </div>
+              <div>
+                <dt>調製時期</dt>
+                <dd>収穫後に商品ラベルへ記載</dd>
+              </div>
+              <div>
+                <dt>保存方法</dt>
+                <dd>直射日光、高温多湿を避け、涼しい場所で保管</dd>
+              </div>
+              <div>
+                <dt>販売者情報</dt>
+                <dd>阿木ファーム　所在地、電話番号は公開前に実情報へ差し替え</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="privacy-note" aria-label="個人情報の扱い">
+            <strong>個人情報の扱い</strong>
+            <p class="copy-lines">
+              <span>予約フォームでいただいたお名前、電話番号、メールアドレス、発送先住所は</span>
+              <span>予約内容の確認、配送、問い合わせ対応のために使用します</span>
+              <span>公開前にフォームの通知先と保存期間を確認し、不要な情報は長く残さない運用にします</span>
+            </p>
           </div>
         </div>
       </section>
@@ -179,34 +815,76 @@
       <section id="order" class="order-section">
         <div class="section-inner order-layout">
           <div class="order-copy">
-            <p class="eyebrow">Order</p>
-            <h2>炊きたての香りを、食卓へ。</h2>
-            <p>
-              ご注文はLINE・Instagram DM・メールで受け付けています。
-              数量、配送先、希望日をお知らせください。
+            <p class="eyebrow">予約相談</p>
+            <h2>予約内容を確認します</h2>
+            <p class="copy-lines">
+              <span>数量、配送先、希望時期を送ってください</span>
+              <span>送料込みの合計目安を見てから、入金するかどうかを決められます</span>
             </p>
+            <ul class="order-checks">
+              <li>予約前に送料込みの合計金額を確認できます</li>
+              <li>玄米で届くため、必要な分だけ精米できます</li>
+              <li>共同予約やご家族への分配も相談できます</li>
+              <li>送信だけでは予約確定になりません</li>
+            </ul>
+            <p class="deadline-banner deadline-banner--dark" id="deadlineBannerOrder" role="status"></p>
           </div>
-          <form class="order-panel" aria-label="注文メモ作成フォーム">
+          <form class="order-panel" aria-label="予約フォーム" action="https://formspree.io/f/mbdwgyek" method="POST" id="reserveForm">
+            <input type="hidden" name="_subject" value="あぎひかり 阿木ファーム 予約申込み" />
+            <!-- スパム対策用ハニーポット（人間には見えません　空のままでOK） -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px" aria-hidden="true" />
+
             <label>
-              商品
-              <select id="productSelect">
-                <option value="白米 5kg">白米 5kg</option>
-                <option value="白米 10kg" selected>白米 10kg</option>
-                <option value="白米 10kg 定期便">白米 10kg 定期便</option>
-              </select>
+              希望数量（10kg単位）
+              <input id="quantityInput" type="number" min="10" step="10" value="10" />
             </label>
-            <label>
-              数量
-              <input id="quantityInput" type="number" min="1" value="1" />
-            </label>
+            <div class="quick-amounts" aria-label="数量のクイック選択">
+              <button type="button" data-kg="10">10kg</button>
+              <button type="button" data-kg="30">30kg</button>
+              <button type="button" data-kg="60">60kg</button>
+              <button type="button" data-kg="120">120kg</button>
+            </div>
+            <p class="form-hint">770円/kg（税込）　10kg単位で必要な量を相談できます</p>
             <div class="order-total" aria-live="polite">
               <span>予約内容</span>
-              <strong id="orderSummary">白米 10kg × 1</strong>
+              <strong id="orderSummary">玄米 10kg
+商品 7,700円 税込
+送料目安 1,000円
+合計目安 8,700円</strong>
             </div>
-            <a id="lineLink" class="primary-button wide" href="https://line.me/R/ti/p/" target="_blank" rel="noreferrer">
-              LINEで注文相談
-            </a>
-            <a id="mailLink" class="text-link" href="mailto:info@example.com">メールで問い合わせ</a>
+            <input type="hidden" id="orderField" name="order" value="玄米 10kg / 商品 7,700円（税込） / 送料目安 1,000円 / 合計目安 8,700円" />
+
+            <label>
+              お名前<span class="badge-req">必須</span>
+              <input type="text" name="name" required autocomplete="name" placeholder="例：山田 太郎" />
+            </label>
+            <label>
+              電話番号<span class="badge-req">必須</span>
+              <input type="tel" name="phone" required autocomplete="tel" placeholder="例：090-1234-5678" />
+            </label>
+            <label>
+              メールアドレス<span class="badge-opt">任意</span>
+              <input type="email" name="email" autocomplete="email" placeholder="例：name@email.jp" />
+            </label>
+            <label>
+              発送先住所<span class="badge-req">必須</span>
+              <textarea name="address" rows="3" required placeholder="郵便番号・住所・建物名まで"></textarea>
+            </label>
+            <label>
+              ご要望・質問<span class="badge-opt">任意</span>
+              <textarea name="message" rows="3" placeholder="共同予約の希望など、あればご記入ください"></textarea>
+            </label>
+
+            <p class="order-small">送信後、送料込みの合計金額と振込先をご連絡します　入金前に予約は確定しません</p>
+            <button type="submit" class="primary-button wide" id="submitOrderButton">予約内容を相談する</button>
+
+            <div class="order-alt">
+              <p class="order-alt-note">先に軽く相談したい方はこちら</p>
+              <a id="lineLink" class="ghost-button wide" href="https://line.me/R/ti/p/" target="_blank" rel="noreferrer">
+                LINEで予約相談
+              </a>
+              <p class="order-small">正式な予約相談は上のフォームから送信できます</p>
+            </div>
           </form>
         </div>
       </section>
@@ -214,21 +892,57 @@
       <section id="faq" class="section faq-section">
         <div class="section-inner">
           <div class="section-heading">
-            <p class="eyebrow">FAQ</p>
+            <p class="eyebrow">確認事項</p>
             <h2>よくある質問</h2>
           </div>
           <div class="faq-list">
+            <details open>
+              <summary>表示価格は税込ですか？</summary>
+              <p>はい　770円/kgの税込表示です　送料目安は10kgごとに1,000円です　入金前に送料込みの合計金額をご案内します</p>
+            </details>
+            <details>
+              <summary>収穫前予約をする意味は何ですか？</summary>
+              <p>収穫後の袋詰め、保管、発送準備をしやすくするため、事前に希望数量を伺っています　送信だけで購入確定にはなりません</p>
+            </details>
+            <details>
+              <summary>収穫時期はいつですか？</summary>
+              <p>9月中旬から下旬ごろを予定しています　天候や生育状況により前後する場合があります</p>
+            </details>
+            <details>
+              <summary>発送時期はいつですか？</summary>
+              <p>10月中旬から下旬ごろを予定しています　収穫後、準備が整い次第順番にご案内します</p>
+            </details>
+            <details>
+              <summary>支払い方法は何がありますか？</summary>
+              <p>お支払いは銀行振込のみです　振込先は予約内容の確認後にご案内します</p>
+            </details>
+            <details>
+              <summary>支払い時期はいつですか？</summary>
+              <p>事前予約後、8月末までのお支払いをお願いします　お支払い確認後、予約確定となります</p>
+            </details>
             <details>
               <summary>送料はかかりますか？</summary>
-              <p>配送地域と数量により変わります。注文前に合計金額をお知らせします。</p>
+              <p>送料目安は10kgごとに1,000円です　北海道、沖縄、離島などは配送条件を確認して、入金前に合計金額をお知らせします</p>
             </details>
             <details>
-              <summary>玄米での注文はできますか？</summary>
-              <p>在庫状況により対応できます。ご希望の内容量とあわせてご相談ください。</p>
+              <summary>何kgから予約できますか？</summary>
+              <p>玄米10kgから予約できます　10kg単位で、30kg・120kgなど必要な量をご相談ください</p>
             </details>
             <details>
-              <summary>贈答用にできますか？</summary>
-              <p>熨斗や送り先別配送の相談を受け付けています。用途をお知らせください。</p>
+              <summary>白米ではなく玄米で届きますか？</summary>
+              <p>はい　玄米でお渡しします　ご家庭やお近くの精米所で、お好みの精米具合に調整できます</p>
+            </details>
+            <details>
+              <summary>予約後のキャンセルはできますか？</summary>
+              <p>入金前は見送り可能です　入金後は数量を確保するため原則としてキャンセル不可です　事情がある場合は早めにご相談ください</p>
+            </details>
+            <details>
+              <summary>届いた商品に不備があった場合はどうなりますか？</summary>
+              <p>破損、誤配送、内容違いがある場合は、到着後7日以内に写真を添えてご連絡ください　内容を確認して個別に対応します</p>
+            </details>
+            <details>
+              <summary>玄米はどのように保管すればいいですか？</summary>
+              <p>直射日光、高温多湿を避け、風通しのよい涼しい場所で保管してください　長期保管の場合は小分けにして低温での保管がおすすめです</p>
             </details>
           </div>
         </div>
@@ -239,12 +953,18 @@
       <div class="section-inner footer-inner">
         <p class="brand footer-brand">
           <span class="brand-mark" aria-hidden="true"></span>
-          <span>阿木川源流米</span>
+          <span>あぎひかり</span>
         </p>
-        <p>産地直送のお米販売</p>
+        <p>
+          <a href="#terms">取引条件と商品表示</a>
+          <span aria-hidden="true"> / </span>
+          <a href="#order">予約相談</a>
+        </p>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <a class="mobile-sticky-cta" href="#order">予約相談する</a>
+
+    <script src="script.js?v=rice-20260801-price770"></script>
   </body>
 </html>
