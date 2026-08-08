@@ -10,7 +10,7 @@ const stickyCta = document.querySelector(".mobile-sticky-cta");
 const orderSection = document.querySelector("#order");
 const heroSection = document.querySelector(".hero");
 
-const pricePerKg = 770;
+const pricePerKg = 756;
 const shippingPer10Kg = 1000;
 
 // GA4等にイベントを送る共通関数です
@@ -64,9 +64,9 @@ function updateDeadlineBanners() {
 
   let text;
   if (daysLeft > 0) {
-    text = "予約締切：8月31日ご入金分まで";
+    text = "先行予約受付：8月31日まで";
   } else if (daysLeft === 0) {
-    text = "本日が予約締切日です（8月31日入金分）";
+    text = "本日が先行予約の締切日です（8月31日）";
   } else {
     text = "本年の早期予約受付は締め切りました　次回のご案内までお待ちください";
   }
@@ -133,4 +133,99 @@ if (reserveForm) {
   reserveForm.addEventListener("submit", () => {
     trackEvent("reserve_form_submit", { value: quantityInput.value });
   });
+}
+
+// 高級感を出すための控えめなスクロール演出
+// 背景写真は奥でゆっくり、文字やカードは手前で少しだけ浮くように動かします
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!reduceMotion) {
+  document.documentElement.classList.add("motion-ready");
+
+  const heroImage = document.querySelector(".hero-image");
+  const heroContent = document.querySelector(".hero-content");
+  const heroStats = document.querySelector(".hero-stats");
+  const parallaxCards = document.querySelectorAll(
+    ".photo-card, .product-card, .quality-item, .family-item, .support-grid article, .taste-card-grid article"
+  );
+  const revealTargets = document.querySelectorAll(
+    ".section-heading, .decision-grid > div, .proof-list > div, .support-grid article, .family-item, .story-copy, .photo-card, .quality-item, .process-strip article, .taste-card-grid article, .cook-grid article, .product-card, .delivery-grid article, .reserve-flow article, .terms-card, .order-panel"
+  );
+
+  let ticking = false;
+
+  function clamp(value, min, max) {
+    return Math.min(max, Math.max(min, value));
+  }
+
+  function updateParallax() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const viewportHeight = window.innerHeight || 1;
+
+    if (heroSection && heroImage) {
+      const heroRect = heroSection.getBoundingClientRect();
+      const heroProgress = clamp((0 - heroRect.top) / Math.max(heroRect.height, 1), 0, 1);
+      heroImage.style.transform = `scale(${1.045 + heroProgress * 0.018}) translate3d(0, ${scrollY * 0.08}px, 0)`;
+      heroSection.style.setProperty("--shine-y", `${heroProgress * 34}px`);
+    }
+
+    if (heroContent) {
+      const lift = clamp(scrollY * -0.035, -26, 0);
+      heroContent.style.transform = `translate3d(0, ${lift}px, 0)`;
+    }
+
+    if (heroStats) {
+      const lift = clamp(scrollY * -0.022, -18, 0);
+      heroStats.style.transform = `translate3d(0, ${lift}px, 0)`;
+    }
+
+    parallaxCards.forEach((card, index) => {
+      const rect = card.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > viewportHeight) {
+        return;
+      }
+      const centerOffset = (rect.top + rect.height / 2 - viewportHeight / 2) / viewportHeight;
+      const depth = index % 2 === 0 ? 10 : 16;
+      const featuredLift = card.classList.contains("featured") ? -10 : 0;
+      const y = clamp(centerOffset * -depth, -18, 18) + featuredLift;
+      card.style.setProperty("--parallax-y", `${y}px`);
+    });
+
+    ticking = false;
+  }
+
+  function requestParallaxUpdate() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener("scroll", requestParallaxUpdate, { passive: true });
+  window.addEventListener("resize", requestParallaxUpdate);
+  requestParallaxUpdate();
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        rootMargin: "0px 0px -12% 0px",
+        threshold: 0.16,
+      }
+    );
+
+    revealTargets.forEach((target) => {
+      target.classList.add("reveal-item");
+      observer.observe(target);
+    });
+  } else {
+    revealTargets.forEach((target) => target.classList.add("is-revealed"));
+  }
 }
