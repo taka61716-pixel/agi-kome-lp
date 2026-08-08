@@ -823,8 +823,8 @@
           <div class="privacy-note" aria-label="個人情報の扱い">
             <strong>個人情報の扱い</strong>
             <p class="copy-lines">
-              <span>予約フォームでいただいたお名前、電話番号、メールアドレス、発送先住所は</span>
-              <span>予約内容の確認、配送、問い合わせ対応のために使用します</span>
+              <span>予約フォームでいただいたお名前、電話番号、メールアドレス、お届け地域は</span>
+              <span>予約内容の確認、送料のご案内、問い合わせ対応のために使用します</span>
               <span>公開前にフォームの通知先と保存期間を確認し、不要な情報は長く残さない運用にします</span>
             </p>
           </div>
@@ -886,8 +886,8 @@
               <input type="email" name="email" autocomplete="email" placeholder="例：name@email.jp" />
             </label>
             <label>
-              発送先住所<span class="badge-req">必須</span>
-              <textarea name="address" rows="3" required placeholder="郵便番号・住所・建物名まで"></textarea>
+              お届け先の地域<span class="badge-req">必須</span>
+              <textarea name="delivery_area" rows="2" required placeholder="例：愛知県名古屋市（詳細住所は予約確定後に伺います）"></textarea>
             </label>
             <label>
               ご要望・質問<span class="badge-opt">任意</span>
@@ -895,15 +895,7 @@
             </label>
 
             <p class="order-small">収穫後、販売可能量・送料込みの合計金額・振込先をご連絡します　入金前に予約は確定しません</p>
-            <button type="submit" class="primary-button wide" id="submitOrderButton">予約内容を相談する</button>
-
-            <div class="order-alt">
-              <p class="order-alt-note">先に軽く相談したい方はこちら</p>
-              <a id="lineLink" class="ghost-button wide" href="https://line.me/R/ti/p/" target="_blank" rel="noreferrer">
-                LINEで予約相談
-              </a>
-              <p class="order-small">正式な予約相談は上のフォームから送信できます</p>
-            </div>
+            <button type="submit" class="primary-button wide" id="submitOrderButton">予約希望を送る</button>
           </form>
         </div>
       </section>
