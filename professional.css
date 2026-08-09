@@ -1619,3 +1619,7 @@ body { background: var(--lux-ivory) !important; }
     white-space: nowrap !important;
   }
 }
+
+.signature-body span {
+  display: block;
+}
