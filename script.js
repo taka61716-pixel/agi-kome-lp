@@ -1,6 +1,7 @@
 const quantityInput = document.querySelector("#quantityInput");
 const orderSummary = document.querySelector("#orderSummary");
 const orderField = document.querySelector("#orderField");
+const quantityField = document.querySelector("#quantityField");
 const lineLink = document.querySelector("#lineLink");
 const mailLink = document.querySelector("#mailLink");
 const reserveForm = document.querySelector("#reserveForm");
@@ -10,7 +11,7 @@ const stickyCta = document.querySelector(".mobile-sticky-cta");
 const orderSection = document.querySelector("#order");
 const heroSection = document.querySelector(".hero");
 
-const pricePerKg = 756;
+const pricePerKg = 770;
 const shippingPer10Kg = 1000;
 
 // GA4等にイベントを送る共通関数です
@@ -39,10 +40,13 @@ function updateOrderLinks() {
   if (orderField) {
     orderField.value = submitSummary;
   }
+  if (quantityField) {
+    quantityField.value = kg;
+  }
 
-  const message = `阿木ファームのあぎひかり玄米を早期予約相談したいです / 希望数量: ${kg}kg / 商品: ${price.toLocaleString()}円（税込） / 送料目安: ${shipping.toLocaleString()}円 / 合計目安: ${total.toLocaleString()}円 / 受け取り時期を確認したいです`;
+  const message = `【あぎひかり 予約相談】\n希望数量：${kg}kg\nお名前：\nお届け先：都道府県・市区町村\nご質問・ご要望：`;
   if (lineLink) {
-    lineLink.href = `https://line.me/R/msg/text/?${encodeURIComponent(message)}`;
+    lineLink.href = `https://line.me/R/oaMessage/%40346actqq/?${encodeURIComponent(message)}`;
   }
 
   productCards.forEach((card) => {
@@ -119,7 +123,7 @@ if (stickyCta) {
 // どの導線から反応があったかをGA4で確認できるようにするクリック計測（計測ID未設定の間は何も起きません）
 if (lineLink) {
   lineLink.addEventListener("click", () => {
-    trackEvent("contact_click", { method: "line", value: quantityInput.value });
+    trackEvent("line_reservation_template_click", { method: "line", value: quantityInput.value });
   });
 }
 
@@ -146,10 +150,10 @@ if (!reduceMotion) {
   const heroContent = document.querySelector(".hero-content");
   const heroStats = document.querySelector(".hero-stats");
   const parallaxCards = document.querySelectorAll(
-    ".photo-card, .product-card, .quality-item, .family-item, .support-grid article, .taste-card-grid article"
+    ".signature-image, .photo-card, .product-card, .quality-item, .family-item, .support-grid article, .taste-card-grid article"
   );
   const revealTargets = document.querySelectorAll(
-    ".section-heading, .decision-grid > div, .proof-list > div, .support-grid article, .family-item, .story-copy, .photo-card, .quality-item, .process-strip article, .taste-card-grid article, .cook-grid article, .product-card, .delivery-grid article, .reserve-flow article, .terms-card, .order-panel"
+    ".signature-copy, .signature-image, .section-heading, .decision-grid > div, .proof-list > div, .support-grid article, .family-item, .story-copy, .photo-card, .quality-item, .process-strip article, .taste-card-grid article, .cook-grid article, .product-card, .delivery-grid article, .reserve-flow article, .terms-card, .order-panel"
   );
 
   let ticking = false;
@@ -186,7 +190,7 @@ if (!reduceMotion) {
       }
       const centerOffset = (rect.top + rect.height / 2 - viewportHeight / 2) / viewportHeight;
       const depth = index % 2 === 0 ? 10 : 16;
-      const featuredLift = card.classList.contains("featured") ? -10 : 0;
+      const featuredLift = 0;
       const y = clamp(centerOffset * -depth, -18, 18) + featuredLift;
       card.style.setProperty("--parallax-y", `${y}px`);
     });
