@@ -1623,3 +1623,88 @@ body { background: var(--lux-ivory) !important; }
 .signature-body span {
   display: block;
 }
+
+/* BALANCED PHOTO STORY GRID */
+.photo-section {
+  padding-top: clamp(96px, 10vw, 150px) !important;
+  padding-bottom: clamp(110px, 12vw, 180px) !important;
+}
+
+.photo-section .section-inner {
+  width: min(1280px, calc(100% - 64px)) !important;
+}
+
+.photo-section .section-heading {
+  max-width: 920px !important;
+  margin-bottom: clamp(44px, 5vw, 72px) !important;
+}
+
+.photo-section .section-heading h2 {
+  max-width: none !important;
+  font-size: clamp(3rem, 4.2vw, 4.8rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.07em !important;
+  text-wrap: balance;
+}
+
+.photo-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: clamp(28px, 3.2vw, 48px) !important;
+}
+
+.photo-card,
+.photo-card:nth-child(even),
+.photo-card:nth-child(3),
+.photo-card:nth-child(4) {
+  display: grid !important;
+  grid-template-rows: auto 1fr !important;
+  margin-top: 0 !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(24, 25, 20, .14) !important;
+  background: rgba(248, 244, 234, .42) !important;
+}
+
+.photo-card picture {
+  aspect-ratio: 16 / 10 !important;
+}
+
+.photo-card div {
+  align-content: start !important;
+  gap: 10px !important;
+  padding: clamp(24px, 2.4vw, 34px) !important;
+}
+
+.photo-card h3 {
+  font-size: clamp(1.25rem, 1.6vw, 1.55rem) !important;
+  line-height: 1.45 !important;
+}
+
+.photo-card p {
+  font-size: .92rem !important;
+  line-height: 1.85 !important;
+}
+
+@media (max-width: 760px) {
+  .photo-section {
+    padding-top: 84px !important;
+    padding-bottom: 96px !important;
+  }
+  .photo-section .section-inner {
+    width: min(100% - 40px, 680px) !important;
+  }
+  .photo-section .section-heading {
+    margin-bottom: 36px !important;
+  }
+  .photo-section .section-heading h2 {
+    font-size: clamp(2.45rem, 12vw, 3.5rem) !important;
+    line-height: 1.12 !important;
+  }
+  .photo-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+  .photo-card picture {
+    aspect-ratio: 4 / 3 !important;
+  }
+}
