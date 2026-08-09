@@ -1587,3 +1587,35 @@ body { background: var(--lux-ivory) !important; }
     flex-basis: 38px;
   }
 }
+
+/* FINAL HERO BRIGHTNESS AND REQUESTED TWO-LINE COPY */
+.hero-image {
+  filter: saturate(.96) contrast(1.01) brightness(1.12) !important;
+}
+
+.hero-media::after {
+  background:
+    linear-gradient(90deg, rgba(7, 14, 11, .28) 0%, rgba(7, 14, 11, .12) 38%, transparent 72%),
+    linear-gradient(0deg, rgba(7, 14, 11, .18), transparent 54%) !important;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(180deg, rgba(5, 13, 10, .03) 0%, rgba(5, 13, 10, .07) 42%, rgba(5, 13, 10, .44) 100%),
+    linear-gradient(90deg, rgba(5, 13, 10, .18), transparent 68%) !important;
+}
+
+.hero .hero-note span {
+  display: block !important;
+}
+
+@media (max-width: 760px) {
+  .hero .hero-note {
+    font-size: min(.66rem, 2.7vw) !important;
+    letter-spacing: 0 !important;
+    line-height: 1.8 !important;
+  }
+  .hero .hero-note span {
+    white-space: nowrap !important;
+  }
+}
